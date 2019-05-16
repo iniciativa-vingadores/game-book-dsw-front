@@ -4,20 +4,18 @@ import { BrowserRouter, Route } from "react-router-dom";
 //import Button from '@material-ui/core/Button'
 
 //Components
-import Example from "./example/Example";
+import LoginForm from "./loginForm/LoginForm";
 
-class App extends React.Component {
-  render() {
-    return (
-      <div>
-        <BrowserRouter>
-          <div>
-            <Route path="/" exact component={Example} />
-          </div>
-        </BrowserRouter>
-      </div>
-    );
-  }
+const App = _ => {
+  return (
+    <div>
+      <BrowserRouter>
+        <div>
+          <Route path="/" exact component={LoginForm} />
+        </div>
+      </BrowserRouter>
+    </div>
+  );
 }
 
 export default App;
