@@ -1,24 +1,24 @@
+//Fake response pro trabalho 1
+const response = {
+  code: 0,
+  message: "",
+  data: {}
+};
+
 //Action Creators...
 export const loginUser = (email, password) => dispatch => {
-  let response;
-
   if (email === "john@asdf.com" && password === "123456a") {
-    response = {
-      code: 200,
-      message: "",
-      data: {
-        id: "1",
-        name: "John Doe",
-        email: "john@asdf.com",
-        token: "asdfg1234"
-      }
+    response.code = 200;
+    response.message = "";
+    response.data = {
+      id: "1",
+      email: "john@asdf.com",
+      token: "asdfg1234"
     };
   } else {
-    response = {
-      code: 401,
-      message: "Not authorized bitch",
-      data: {}
-    };
+    response.code = 401;
+    response.message = "Not authorized";
+    response.data = {};
   }
 
   dispatch({
@@ -27,13 +27,11 @@ export const loginUser = (email, password) => dispatch => {
   });
 };
 
-const registerUser = (name, email, password) => dispatch => {
+export const registerUser = (name, email, password) => dispatch => {
   //Fake response
-  const response = {
-    code: 200,
-    message: "",
-    data: {}
-  };
+  response.code = 201;
+  response.message = "Created";
+  response.data = { id: 1, name: name, email: email };
 
   dispatch({
     type: "LOGIN_USER",

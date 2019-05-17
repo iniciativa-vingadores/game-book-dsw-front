@@ -5,7 +5,7 @@ export default (state = null, action) => {
     case "LOGIN_USER":
       return { ...state, auth: action.payload };
     case "REGISTER_USER":
-      return { ...state, register: action.payload };
+      return { ...state, info: action.payload };
     default:
       return state;
   }

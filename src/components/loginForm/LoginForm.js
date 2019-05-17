@@ -1,42 +1,61 @@
 import React from "react";
 import { connect } from "react-redux";
 import { loginUser } from "../../actions";
-
-//Link para diferentes rotas
-// import { Link } from "react-router-dom";
-// JSX: <Link to="rota"><Link/>
+import { Link } from "react-router-dom";
 
 class LoginForm extends React.Component {
-  render() {
-    let email = "";
-    let password = "";
+  state = {
+    email: "",
+    password: ""
+  };
 
-    //TODO(): Terminar fluxo login
+  checkResponse = _ => {
+    if (this.props.user !== null) {
+      if (this.props.user.auth.code === 200) {
+        return (
+          <div>
+            <Link to="/">Go to Main</Link>
+          </div>
+        );
+      } else {
+        return <div>{this.props.user.auth.message}</div>;
+      }
+    }
+    return <div />;
+  };
+
+  render() {
+    //TODO(): Desenhar a tela de login
     return (
       <div>
-        <form>
+        <form onSubmit={e => e.preventDefault()}>
           <input
             type="textfield"
-            onChange={e => (this.name = e.target.value)}
+            onChange={e => this.setState({ email: e.target.value })}
           />
           <br />
           <input
             type="textfield"
-            onChange={e => (this.password = e.target.value)}
+            onChange={e => this.setState({ password: e.target.value })}
           />
           <br />
-          <button onClick={_ => this.props.loginUser(email, password)}>
-            Login bitch!
+          <button
+            onClick={_ =>
+              this.props.loginUser(this.state.email, this.state.password)
+            }
+          >
+            Login
           </button>
         </form>
+        <br />
+        <div>{this.checkResponse()}</div>
       </div>
     );
   }
 }
 
 const mapStateToProps = state => {
-  console.log(state);
-  return { auth: state.user };
+  return { user: state.user };
 };
 
 export default connect(
