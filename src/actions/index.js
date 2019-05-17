@@ -29,12 +29,18 @@ export const loginUser = (email, password) => dispatch => {
 
 export const registerUser = (name, email, password) => dispatch => {
   //Fake response
-  response.code = 201;
-  response.message = "Created";
-  response.data = { id: 1, name: name, email: email };
+  if (name !== "" && email !== "" && password !== "") {
+    response.code = 201;
+    response.message = "Created";
+    response.data = { id: 1, name: name, email: email };
+  } else {
+    response.code = 400;
+    response.message = "Bad request";
+    response.data = {};
+  }
 
   dispatch({
-    type: "LOGIN_USER",
+    type: "REGISTER_USER",
     payload: response
   });
 };

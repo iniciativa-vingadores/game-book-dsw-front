@@ -1,7 +1,5 @@
 import React from "react";
 import { BrowserRouter, Route } from "react-router-dom";
-//Material ui button example
-//import Button from '@material-ui/core/Button'
 
 //Components
 import MainPage from "./mainPage/MainPage";

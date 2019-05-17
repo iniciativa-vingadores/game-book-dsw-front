@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 class MainPage extends React.Component {
-  //TODO(): Desenhar tela principal
+  //TODO(): Fazer o html css tela principal
   render() {
     return (
       <div>

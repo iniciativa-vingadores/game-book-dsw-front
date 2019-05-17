@@ -10,18 +10,18 @@ class LoginForm extends React.Component {
   };
 
   checkResponse = _ => {
-    if (this.props.user !== null) {
+    if (this.props.user !== null && this.props.user.auth !== undefined) {
       if (this.props.user.auth.code === 200) {
         return (
           <div>
-            <Link to="/">Go to Main</Link>
+            <Link to="/">Login successful, go to Main</Link>
           </div>
         );
       } else {
         return <div>{this.props.user.auth.message}</div>;
       }
     }
-    return <div />;
+    return;
   };
 
   render() {
