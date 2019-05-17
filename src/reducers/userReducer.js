@@ -1,4 +1,4 @@
-//Exemplo de reducer
+//Reducer de usuario
 
 export default (state = null, action) => {
   switch (action.type) {

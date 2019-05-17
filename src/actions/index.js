@@ -44,3 +44,51 @@ export const registerUser = (name, email, password) => dispatch => {
     payload: response
   });
 };
+
+export const listBook = _ => dispatch => {
+  response.code = 200;
+  response.message = "";
+  response.data = {
+    results: [
+      {
+        /*Estrutura resumida do livro jogo*/
+      }
+    ],
+    size: 1,
+    total: 1
+  };
+
+  dispatch({
+    type: "LIST_BOOK",
+    payload: response
+  });
+};
+
+export const detailBook = bookId => dispatch => {
+  response.code = 200;
+  response.message = "";
+  response.data = {
+    /*Estrutura detalhada do livro jogo*/
+  };
+
+  dispatch({
+    type: "DETAIL_BOOK",
+    payload: response
+  });
+};
+
+//Verifica o token pra saber se ta logado
+//Pega o id e a decisao atual do livro
+//O livro sera divido por decisoes
+export const readBook = (token, bookId, decisionBook) => dispatch => {
+  response.code = 200;
+  response.message = "";
+  response.data = {
+    /*Estrutura detalhada do livro jogo*/
+  };
+
+  dispatch({
+    type: "READ_BOOK",
+    payload: response
+  });
+};
