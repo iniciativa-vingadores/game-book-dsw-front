@@ -10,6 +10,8 @@ export default (state = null, action) => {
       return { ...state, info: action.payload };
     case "DELETE_USER":
       return { ...state, info: action.payload };
+    case "DETAIL_USER":
+      return { ...state, info: action.payload };
     default:
       return state;
   }

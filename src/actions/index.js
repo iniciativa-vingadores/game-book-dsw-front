@@ -35,7 +35,7 @@ export const registerUser = (name, email, password) => dispatch => {
   if (name !== "" && email !== "" && password !== "") {
     response.code = 201;
     response.message = "Created";
-    response.data = { id: 1, name: name, email: email };
+    response.data = { id: 2, name: name, email: email };
   } else {
     response.code = 400;
     response.message = "Bad request";
@@ -66,6 +66,22 @@ export const deleteUser = token => dispatch => {
 
   dispatch({
     type: "DELETE_USER",
+    payload: response
+  });
+};
+
+export const getUser = token => dispatch => {
+  if (token !== "") {
+    response.code = 200;
+    response.message = "";
+    response.data = { id: 1, name: "John Doe", email: "john@asdf.com" };
+  } else {
+    response.code = 401;
+    response.message = "Not authorized";
+    response.data = {};
+  }
+  dispatch({
+    type: "DETAIL_USER",
     payload: response
   });
 };
