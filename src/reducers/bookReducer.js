@@ -8,6 +8,10 @@ export default (state = null, action) => {
       return { ...state, detail: action.payload };
     case "READ_BOOK":
       return { ...state, read: action.payload };
+    case "CREATE_BOOK":
+      return { ...state, detail: action.payload };
+    case "DELETE_BOOK":
+      return { ...state, info: action.payload };
     default:
       return state;
   }
