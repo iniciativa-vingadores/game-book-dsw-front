@@ -9,12 +9,6 @@ class UserDetail extends React.Component {
     showEdit: false
   };
 
-  componentDidMount() {
-    if (this.props.user === null) {
-      this.setState({ active: false });
-    }
-  }
-
   checkResponse = _ => {
     if (this.props.user !== null && this.props.user.info !== undefined) {
       const user = this.props.user.info.data;
@@ -84,7 +78,6 @@ class UserDetail extends React.Component {
 }
 
 const mapStateToProps = state => {
-  console.log("SADF", state);
   return { user: state.user };
 };
 
