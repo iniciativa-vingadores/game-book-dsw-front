@@ -4,9 +4,15 @@ import { connect } from "react-redux";
 import { getUser } from "../../actions";
 
 class MainPage extends React.Component {
+  state = {
+    active: false
+  };
   componentDidMount() {
     if (this.props.user !== null && this.props.user.auth !== undefined) {
-      this.props.getUser(this.props.user.auth.token);
+      this.props.getUser(this.props.user.auth.data.token);
+      this.setState({ active: true });
+    } else {
+      this.setState({ active: false });
     }
   }
 
@@ -28,7 +34,7 @@ class MainPage extends React.Component {
       <div>
         <form onSubmit={e => e.preventDefault()}>
           <Link to="/login">
-            <button>Login</button>
+            <button>{this.state.active ? "Logout" : "Login"}</button>
           </Link>
           <br />
           <br />

@@ -9,7 +9,7 @@ export default (state = null, action) => {
     case "UPDATE_USER":
       return { ...state, info: action.payload };
     case "DELETE_USER":
-      return { ...state, info: action.payload };
+      return { ...state, auth: action.payload, info: action.payload };
     case "DETAIL_USER":
       return { ...state, info: action.payload };
     default:

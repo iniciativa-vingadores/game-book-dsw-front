@@ -1,23 +1,20 @@
 //Fake response pro trabalho 1
-const response = {
-  code: 0,
-  message: "",
-  data: {}
-};
 
 //Action Creators...
 /*******************************************************************************************
  *  USER ACTIONS CRUD
  ******************************************************************************************/
 export const loginUser = (email, password) => dispatch => {
+  const response = {
+    code: 0,
+    message: "",
+    data: {}
+  };
+
   if (email === "john@asdf.com" && password === "123456a") {
     response.code = 200;
     response.message = "";
-    response.data = {
-      id: 1,
-      email: "john@asdf.com",
-      token: "asdfg1234"
-    };
+    response.data = { token: "asdfg1234" };
   } else {
     response.code = 401;
     response.message = "Not authorized";
@@ -31,6 +28,12 @@ export const loginUser = (email, password) => dispatch => {
 };
 
 export const registerUser = (name, email, password) => dispatch => {
+  const response = {
+    code: 0,
+    message: "",
+    data: {}
+  };
+
   //Fake response
   if (name !== "" && email !== "" && password !== "") {
     response.code = 201;
@@ -48,10 +51,16 @@ export const registerUser = (name, email, password) => dispatch => {
   });
 };
 
-export const updateUser = (token, field, value) => dispatch => {
+export const updateUser = (token, name, email, password) => dispatch => {
+  const response = {
+    code: 0,
+    message: "",
+    data: {}
+  };
+
   response.code = 200;
   response.message = "";
-  response.data = {};
+  response.data = { id: 2, name: name, email: email };
 
   dispatch({
     type: "UPDATE_USER",
@@ -60,6 +69,12 @@ export const updateUser = (token, field, value) => dispatch => {
 };
 
 export const deleteUser = token => dispatch => {
+  const response = {
+    code: 0,
+    message: "",
+    data: {}
+  };
+
   response.code = 204;
   response.message = "";
   response.data = {};
@@ -71,6 +86,12 @@ export const deleteUser = token => dispatch => {
 };
 
 export const getUser = token => dispatch => {
+  const response = {
+    code: 0,
+    message: "",
+    data: {}
+  };
+
   if (token !== "") {
     response.code = 200;
     response.message = "";
@@ -80,6 +101,7 @@ export const getUser = token => dispatch => {
     response.message = "Not authorized";
     response.data = {};
   }
+
   dispatch({
     type: "DETAIL_USER",
     payload: response
@@ -90,6 +112,12 @@ export const getUser = token => dispatch => {
  *  BOOK ACTIONS CRUD
  ******************************************************************************************/
 export const listBook = _ => dispatch => {
+  const response = {
+    code: 0,
+    message: "",
+    data: {}
+  };
+
   response.code = 200;
   response.message = "";
   response.data = {
@@ -113,6 +141,12 @@ export const listBook = _ => dispatch => {
 };
 
 export const detailBook = bookId => dispatch => {
+  const response = {
+    code: 0,
+    message: "",
+    data: {}
+  };
+
   response.code = 200;
   response.message = "";
   response.data = {
@@ -136,6 +170,12 @@ export const detailBook = bookId => dispatch => {
 //Pega o id e a decisao atual do livro
 //O livro sera divido por decisoes
 export const readBook = (token, bookId, decisionBook) => dispatch => {
+  const response = {
+    code: 0,
+    message: "",
+    data: {}
+  };
+
   if (token !== "") {
     response.code = 200;
     response.message = "";
@@ -158,6 +198,12 @@ export const readBook = (token, bookId, decisionBook) => dispatch => {
 };
 
 export const createBook = (token, book) => dispatch => {
+  const response = {
+    code: 0,
+    message: "",
+    data: {}
+  };
+
   response.code = 201;
   response.message = "Created";
   response.data = {
@@ -171,6 +217,12 @@ export const createBook = (token, book) => dispatch => {
 };
 
 export const deleteBook = (token, bookId) => dispatch => {
+  const response = {
+    code: 0,
+    message: "",
+    data: {}
+  };
+
   response.code = 204;
   response.message = "";
   response.data = {};
