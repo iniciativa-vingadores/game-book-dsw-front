@@ -7,6 +7,7 @@ import MainPage from "./mainPage/MainPage";
 import LoginForm from "./loginForm/LoginForm";
 import RegisterForm from "./registerForm/RegisterForm";
 import UserDetail from "./userDetail/UserDetail";
+import BookDetail from "./bookDetail/BookDetail";
 
 class App extends React.Component {
   checkUserDetail = _ => {

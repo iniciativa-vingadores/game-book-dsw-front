@@ -3,6 +3,8 @@ import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 import { getUser } from "../../actions";
 
+import ListBook from "../listBook/ListBook";
+
 class MainPage extends React.Component {
   state = {
     active: false
@@ -44,6 +46,9 @@ class MainPage extends React.Component {
           <br />
           <br />
           {this.checkResponse()}
+          <br />
+          <br />
+          <ListBook />
         </form>
       </div>
     );

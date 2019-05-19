@@ -128,10 +128,24 @@ export const listBook = _ => dispatch => {
         image: "linkImage.com",
         keywords: ["historia", "prates", "invetou"],
         rate: 5
+      },
+      {
+        id: 2,
+        name: "Nome da outra historia do Prates",
+        image: "linkImage.com",
+        keywords: ["historia", "prates", "invetou"],
+        rate: 4
+      },
+      {
+        id: 3,
+        name: "Nome da outra outra historia do Prates",
+        image: "linkImage.com",
+        keywords: ["historia", "prates", "invetou"],
+        rate: 4.5
       }
     ],
-    size: 1,
-    total: 1
+    size: 3,
+    total: 3
   };
 
   dispatch({
