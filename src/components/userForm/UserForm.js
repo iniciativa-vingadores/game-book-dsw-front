@@ -1,4 +1,5 @@
 import React from "react";
+import { TextField, Button } from "@material-ui/core";
 
 class UserForm extends React.Component {
   state = {
@@ -16,24 +17,30 @@ class UserForm extends React.Component {
 
     return (
       <form onSubmit={e => e.preventDefault()}>
-        <input
+        <TextField
+          variant="outlined"
+          label="name"
           type="textfield"
           onChange={e => this.setState({ name: e.target.value })}
         />
         <br />
-        <input
+        <TextField
+          variant="outlined"
+          label="email"
           type="textfield"
           onChange={e => this.setState({ email: e.target.value })}
         />
         <br />
-        <input
-          type="textfield"
+        <TextField
+          label="senha"
+          variant="outlined"
+          type="password"
           onChange={e => this.setState({ password: e.target.value })}
         />
         <br />
-        <button type="button" onClick={this.onButtonReturn}>
+        <Button variant="contained" type="button" onClick={this.onButtonReturn}>
           {type}
-        </button>
+        </Button>
       </form>
     );
   }

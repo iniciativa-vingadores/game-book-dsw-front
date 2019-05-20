@@ -2,6 +2,7 @@ import React from "react";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 import { listBook } from "../../actions";
+import { Typography } from "@material-ui/core";
 
 class ListBook extends React.Component {
   componentDidMount() {
@@ -29,7 +30,9 @@ class ListBook extends React.Component {
     return (
       <div>
         <div>
-          <h1>Livros disponiveis para jogar</h1>
+          <Typography variant="display3">
+            Livros disponiveis para jogar
+          </Typography>
         </div>
         <ul>{this.renderList()}</ul>
       </div>

@@ -1,0 +1,12 @@
+.root {
+  flex-grow: 1;
+  padding-bottom: 70px;
+}
+
+.grow {
+  flex-grow: 1;
+}
+
+.MuiButtonBase-root-103.button {
+  color: #ffffff;
+}

@@ -7,7 +7,7 @@ import MainPage from "./mainPage/MainPage";
 import LoginForm from "./loginForm/LoginForm";
 import RegisterForm from "./registerForm/RegisterForm";
 import UserDetail from "./userDetail/UserDetail";
-import BookDetail from "./bookDetail/BookDetail";
+import Header from "./header/Header";
 
 class App extends React.Component {
   checkUserDetail = _ => {
@@ -24,6 +24,7 @@ class App extends React.Component {
       <div>
         <BrowserRouter>
           <div>
+            <Header />
             <Route path="/" exact component={MainPage} />
             <Route path="/login" exact component={LoginForm} />
             <Route path="/register" exact component={RegisterForm} />

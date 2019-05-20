@@ -4,6 +4,9 @@ import { connect } from "react-redux";
 import { updateUser, deleteUser } from "../../actions";
 import UserForm from "../userForm/UserForm";
 
+//import Material-ui
+import Button from "@material-ui/core/Button";
+
 class UserDetail extends React.Component {
   state = {
     showEdit: false
@@ -55,20 +58,20 @@ class UserDetail extends React.Component {
     return (
       <div>
         {this.checkResponse()}
-        <button
-          type="button"
+        <Button
+          variant="contained"
           onClick={_ => this.setState({ showEdit: !this.state.showEdit })}
         >
           {!this.state.showEdit ? "Edit Perfil" : "Cancel"}
-        </button>
+        </Button>
         <br />
         <br />
         {this.showEditForm()}
         <br />
         <br />
-        <button type="button" onClick={this.onButtonDelete}>
+        <Button variant="contained" onClick={this.onButtonDelete}>
           Delete Account
-        </button>
+        </Button>
         <br />
         <br />
         <Link to="/">Return to main page</Link>
