@@ -33,8 +33,18 @@ class Header extends React.Component {
           <Button className="button">{`${user.name} detail`}</Button>
         </Link>
       );
+    } else {
+      return (
+        <div>
+          <Link to="/login">
+            <Button className="button">Login</Button>
+          </Link>
+          <Link to="/register">
+            <Button className="button">Register</Button>
+          </Link>
+        </div>
+      );
     }
-    return;
   };
 
   //TODO(): Fazer o html css tela principal
@@ -47,14 +57,6 @@ class Header extends React.Component {
             <Typography variant="h6" color="inherit" className="grow">
               {title}
             </Typography>
-            <Link to="/login">
-              <Button className="button">
-                {this.state.active ? "Logout" : "Login"}
-              </Button>
-            </Link>
-            <Link to="/register">
-              <Button className="button">Register</Button>
-            </Link>
             {this.checkUserActive()}
           </Toolbar>
         </AppBar>

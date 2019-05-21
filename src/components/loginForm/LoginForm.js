@@ -1,7 +1,7 @@
 import React from "react";
 import { connect } from "react-redux";
 import { loginUser } from "../../actions";
-import { Link } from "react-router-dom";
+import { Redirect } from "react-router-dom";
 
 //import material ui
 import { Typography } from "@material-ui/core";
@@ -20,13 +20,7 @@ class LoginForm extends React.Component {
   checkResponse = _ => {
     if (this.props.user !== null && this.props.user.auth !== undefined) {
       if (this.props.user.auth.code === 200) {
-        return (
-          <div>
-            <Link to="/">
-              <Typography>Login successful, go to Main</Typography>
-            </Link>
-          </div>
-        );
+        return <Redirect to="/" />;
       } else {
         return (
           <div>
@@ -39,11 +33,10 @@ class LoginForm extends React.Component {
   };
 
   render() {
-    //TODO(): Desenhar a tela de login
     return (
       <div>
         <div className="authform">
-          <img className="imagem" src="./book.png" />
+          <img className="imagem" alt="logo" src="./book.png" />
           <form className="form-wrapper" onSubmit={e => e.preventDefault()}>
             <TextField
               variant="outlined"
