@@ -7,7 +7,9 @@ import { getUser } from "../../actions";
 import Button from "@material-ui/core/Button";
 import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
-import { Typography } from "@material-ui/core";
+import IconButton from "@material-ui/core/IconButton";
+import SearchIcon from "@material-ui/icons/Search";
+import InputBase from "@material-ui/core/InputBase";
 
 //import css
 import "./Header.css";
@@ -49,14 +51,22 @@ class Header extends React.Component {
 
   //TODO(): Fazer o html css tela principal
   render() {
-    const title = "Game Book - plataforma para livros jogos";
     return (
       <div className="root">
         <AppBar>
           <Toolbar>
-            <Typography variant="h6" color="inherit" className="grow">
-              {title}
-            </Typography>
+            <IconButton>
+              <img src="./2book.png" alt="logo" className="icone" />
+            </IconButton>
+            {/* <div className="search">
+              <div className="searchIcon">
+                <SearchIcon />
+              </div>
+              <InputBase
+
+               placeholder="Search…" />
+            </div> */}
+            <div className="grow" />
             {this.checkUserActive()}
           </Toolbar>
         </AppBar>
