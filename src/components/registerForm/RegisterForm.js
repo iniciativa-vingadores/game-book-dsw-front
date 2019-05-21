@@ -29,7 +29,7 @@ class RegisterForm extends React.Component {
     //TODO(): Fazer o html css tela de registro
     return (
       <div>
-        <UserForm onSubmitForm={this.onSubmitForm} type="Register" />
+        <UserForm onSubmitForm={this.onSubmitForm} type="REGISTRAR" />
         <br />
         <div>{this.checkResponse()}</div>
       </div>

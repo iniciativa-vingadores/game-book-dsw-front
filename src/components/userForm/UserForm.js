@@ -1,6 +1,9 @@
 import React from "react";
 import { TextField, Button } from "@material-ui/core";
 
+//import css
+import "./UserForm.css";
+
 class UserForm extends React.Component {
   state = {
     name: "",
@@ -16,32 +19,46 @@ class UserForm extends React.Component {
     const type = this.props.type;
 
     return (
-      <form onSubmit={e => e.preventDefault()}>
-        <TextField
-          variant="outlined"
-          label="name"
-          type="textfield"
-          onChange={e => this.setState({ name: e.target.value })}
-        />
-        <br />
-        <TextField
-          variant="outlined"
-          label="email"
-          type="textfield"
-          onChange={e => this.setState({ email: e.target.value })}
-        />
-        <br />
-        <TextField
-          label="senha"
-          variant="outlined"
-          type="password"
-          onChange={e => this.setState({ password: e.target.value })}
-        />
-        <br />
-        <Button variant="contained" type="button" onClick={this.onButtonReturn}>
-          {type}
-        </Button>
-      </form>
+      <div className="format">
+        <img className="imagem" alt="logo" src="./book.png" />
+        <form className="formwrapper" onSubmit={e => e.preventDefault()}>
+          <TextField
+            variant="outlined"
+            label="name"
+            type="textfield"
+            onChange={e => this.setState({ name: e.target.value })}
+          />
+          <br />
+          <TextField
+            variant="outlined"
+            label="email"
+            type="textfield"
+            onChange={e => this.setState({ email: e.target.value })}
+          />
+          <br />
+          <TextField
+            label="senha"
+            variant="outlined"
+            type="password"
+            onChange={e => this.setState({ password: e.target.value })}
+          />
+          <br />
+          <TextField
+            label="confirmar senha"
+            variant="outlined"
+            type="password"
+            //onChange={e => this.setState({ password: e.target.value })}
+          />
+          <br />
+          <Button
+            variant="contained"
+            type="button"
+            onClick={this.onButtonReturn}
+          >
+            <strong>{type}</strong>
+          </Button>
+        </form>
+      </div>
     );
   }
 }
