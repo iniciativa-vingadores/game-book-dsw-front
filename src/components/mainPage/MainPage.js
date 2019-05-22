@@ -8,6 +8,7 @@ class MainPage extends React.Component {
   state = {
     active: false
   };
+
   componentDidMount() {
     if (this.props.user !== null && this.props.user.auth !== undefined) {
       this.props.getUser(this.props.user.auth.data.token);
@@ -17,7 +18,6 @@ class MainPage extends React.Component {
     }
   }
 
-  //TODO(): Fazer o html css tela principal
   render() {
     return (
       <div>

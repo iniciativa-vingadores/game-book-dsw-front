@@ -7,6 +7,7 @@ import MainPage from "./mainPage/MainPage";
 import LoginForm from "./loginForm/LoginForm";
 import RegisterForm from "./registerForm/RegisterForm";
 import UserDetail from "./userDetail/UserDetail";
+import BookDetail from "./bookDetail/BookDetail";
 import Header from "./header/Header";
 
 class App extends React.Component {
@@ -17,7 +18,12 @@ class App extends React.Component {
     }
   };
 
-  checkBookDetail = _ => {};
+  checkBookDetail = _ => {
+    if (this.props.book !== null && this.props.book.detail !== undefined) {
+      const bookId = this.props.book.detail.data.id;
+      return <Route path={`/books/${bookId}`} exact component={BookDetail} />;
+    }
+  };
 
   render() {
     return (
@@ -38,7 +44,7 @@ class App extends React.Component {
 }
 
 const mapStateToProps = state => {
-  return { user: state.user };
+  return { user: state.user, book: state.book };
 };
 
 export default connect(mapStateToProps)(App);

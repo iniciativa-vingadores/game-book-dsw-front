@@ -124,24 +124,31 @@ export const listBook = _ => dispatch => {
     results: [
       {
         id: 1,
-        name: "Nome da historia do Prates",
+        name: "Vingadores - Ultimato",
         image: "linkImage.com",
-        keywords: ["historia", "prates", "invetou"],
+        keywords: ["Aventura", "Super-heróis", "Homem de ferro morre"],
         rate: 5
       },
       {
         id: 2,
-        name: "Nome da outra historia do Prates",
+        name: "Hellboy",
         image: "linkImage.com",
-        keywords: ["historia", "prates", "invetou"],
-        rate: 4
+        keywords: ["Ação", "Fantasia"],
+        rate: 2
       },
       {
         id: 3,
-        name: "Nome da outra outra historia do Prates",
+        name: "Detetive Pikachu",
         image: "linkImage.com",
-        keywords: ["historia", "prates", "invetou"],
+        keywords: ["Pokémon", "Pikachu", "Poke-bola", "Desenho"],
         rate: 4.5
+      },
+      {
+        id: 4,
+        name: "Clube da Luta",
+        image: "linkImage.com",
+        keywords: ["Melhor filme", "Foda"],
+        rate: 5
       }
     ],
     size: 3,

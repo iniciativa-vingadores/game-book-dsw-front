@@ -1,25 +1,35 @@
 import React from "react";
 import { connect } from "react-redux";
-import { Link } from "react-router-dom";
-import { listBook } from "../../actions";
+import { Redirect } from "react-router-dom";
+import { listBook, detailBook } from "../../actions";
+
+//Material ui
 import { Typography } from "@material-ui/core";
+import List from "@material-ui/core/List";
+
+import ItemBook from "../itemBook/ItemBook";
 
 class ListBook extends React.Component {
   componentDidMount() {
     this.props.listBook();
   }
 
+  getBookDetail = id => {
+    this.props.detailBook(id);
+  };
+
   renderList = _ => {
     if (this.props.book !== null && this.props.book.list !== undefined) {
       if (this.props.book.list.code === 200) {
         const list = this.props.book.list.data.results;
-        return list.map(element => {
+        return list.map(e => {
           return (
-            <li key={element.id}>
-              <Link to="/books/">{element.name}</Link>
-              <br />
-              <br />
-            </li>
+            <ItemBook
+              key={e.id}
+              name={e.name}
+              rate={e.rate}
+              keywords={e.keywords}
+            />
           );
         });
       }
@@ -27,14 +37,17 @@ class ListBook extends React.Component {
   };
 
   render() {
+    // if (this.props.book !== null && this.props.book.detail !== undefined) {
+    //   const bookId = this.props.book.detail.data.id;
+    //   return <Redirect to={`/books/${bookId}`} />;
+    // }
+
     return (
       <div>
         <div>
-          <Typography variant="display3">
-            Livros disponiveis para jogar
-          </Typography>
+          <Typography>Lançamentos</Typography>
         </div>
-        <ul>{this.renderList()}</ul>
+        <List>{this.renderList()}</List>
       </div>
     );
   }
@@ -46,5 +59,5 @@ const mapStateToProps = state => {
 
 export default connect(
   mapStateToProps,
-  { listBook }
+  { listBook, detailBook }
 )(ListBook);

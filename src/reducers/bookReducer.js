@@ -9,7 +9,7 @@ export default (state = null, action) => {
     case "READ_BOOK":
       return { ...state, read: action.payload };
     case "CREATE_BOOK":
-      return { ...state, detail: action.payload };
+      return { ...state, create: action.payload };
     case "DELETE_BOOK":
       return { ...state, info: action.payload };
     default:
