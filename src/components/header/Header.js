@@ -71,13 +71,14 @@ class Header extends React.Component {
             onClose={this.handleClose}
           >
             <Link to={`/users/${user.id}`}>
-              <MenuItem onClick={this.handleClose}>Profile</MenuItem>
+              <MenuItem onClick={this.handleClose}>Perfil</MenuItem>
             </Link>
+            <MenuItem onClick={this.handleClose}>Minhas histórias</MenuItem>
+            <MenuItem onClick={this.handleClose}>Seguidores</MenuItem>
+            <MenuItem onClick={this.handleClose}>Segue</MenuItem>
+            <MenuItem onClick={this.handleClose}>Sair</MenuItem>
           </Menu>
         </div>
-        // <Link to={`/users/${user.id}`}>
-        //   <Button className="button">{`${user.name} detail`}</Button>
-        // </Link>
       );
     } else {
       return (

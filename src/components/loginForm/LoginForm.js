@@ -39,6 +39,7 @@ class LoginForm extends React.Component {
           <img className="imagem" alt="logo" src="./book.png" />
           <form className="form-wrapper" onSubmit={e => e.preventDefault()}>
             <TextField
+              className="input"
               variant="outlined"
               label="email"
               type="textfield"
@@ -46,6 +47,7 @@ class LoginForm extends React.Component {
             />
             <br />
             <TextField
+              className="input"
               label="senha"
               variant="outlined"
               type="password"
@@ -53,6 +55,7 @@ class LoginForm extends React.Component {
             />
             <br />
             <Button
+              className="myButton"
               variant="contained"
               onClick={_ =>
                 this.props.loginUser(this.state.email, this.state.password)

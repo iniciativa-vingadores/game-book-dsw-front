@@ -1,5 +1,5 @@
 import React from "react";
-import { Link, Redirect } from "react-router-dom";
+// import { Redirect } from "react-router-dom";
 import { connect } from "react-redux";
 import { updateUser, deleteUser } from "../../actions";
 import UserForm from "../userForm/UserForm";
@@ -9,6 +9,7 @@ import Button from "@material-ui/core/Button";
 
 class UserDetail extends React.Component {
   state = {
+    active: true,
     showEdit: false
   };
 
@@ -19,12 +20,6 @@ class UserDetail extends React.Component {
         <div>
           <h2>{user.name}</h2>
           <h3>{user.email}</h3>
-        </div>
-      );
-    } else {
-      return (
-        <div>
-          <Redirect to="/" />
         </div>
       );
     }
@@ -38,10 +33,8 @@ class UserDetail extends React.Component {
   };
 
   onButtonDelete = _ => {
-    //const token = this.props.user.auth.data.token;
-    //this.props.deleteUser(token);
-    //this.setState({ active: false });
-    return <Redirect to="/" />;
+    // const token = this.props.user.auth.data.token;
+    // this.props.deleteUser(token);
   };
 
   showEditForm = _ => {
@@ -72,9 +65,6 @@ class UserDetail extends React.Component {
         <Button variant="contained" onClick={this.onButtonDelete}>
           Delete Account
         </Button>
-        <br />
-        <br />
-        <Link to="/">Return to main page</Link>
       </div>
     );
   }

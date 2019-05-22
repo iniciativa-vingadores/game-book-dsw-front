@@ -1,10 +1,6 @@
 import React from "react";
-import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 import { getUser } from "../../actions";
-
-//import materialui
-import Button from "@material-ui/core/Button";
 
 import ListBook from "../listBook/ListBook";
 
@@ -20,18 +16,6 @@ class MainPage extends React.Component {
       this.setState({ active: false });
     }
   }
-
-  checkResponse = _ => {
-    if (this.props.user !== null && this.props.user.info !== undefined) {
-      const user = this.props.user.info.data;
-      return (
-        <Link to={`/users/${user.id}`}>
-          <Button color="inherit">{`${user.name} detail`}</Button>
-        </Link>
-      );
-    }
-    return;
-  };
 
   //TODO(): Fazer o html css tela principal
   render() {

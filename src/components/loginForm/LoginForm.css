@@ -4,12 +4,12 @@
   margin-top: 1%;
 }
 
-.form-wrapper .MuiFormControl-root-76 {
+.form-wrapper .input {
   width: 100%;
   margin: 10px 0;
 }
 
-.form-wrapper .MuiButtonBase-root-47 {
+.form-wrapper .myButton {
   width: 100%;
   margin: 10px 0;
   color: #ffffff;
