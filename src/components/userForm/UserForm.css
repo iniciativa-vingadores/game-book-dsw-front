@@ -1,11 +1,11 @@
 .format {
   margin: 0 auto;
   width: 340px;
-  margin-top: 5%;
+  margin-top: 1%;
 }
 
 .formwrapper {
-  padding: 15px;
+  padding: 10px;
   border-radius: 10px;
   box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
 }

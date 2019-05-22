@@ -1,28 +1,31 @@
 import React from "react";
 import { connect } from "react-redux";
-import { Link } from "react-router-dom";
+import { Redirect } from "react-router-dom";
 import { registerUser } from "../../actions";
 import UserForm from "../userForm/UserForm";
 
 class RegisterForm extends React.Component {
+  state = { active: false };
+
   checkResponse = _ => {
-    const response = this.props.user;
-    if (response !== null && response.info !== undefined) {
-      if (response.info.code === 201) {
-        return (
-          <div>
-            <Link to="/login">Successful register, go to Login</Link>
-          </div>
-        );
-      } else {
-        return <div>{response.info.message}</div>;
-      }
+    // const response = this.props.user;
+    // if (response !== null && response.info !== undefined) {
+    //   if (response.info.code === 201) {
+    //     return <Redirect to="/login" />;
+    //   } else {
+    //     return <div>{response.info.message}</div>;
+    //   }
+    // }
+
+    if (this.state.active) {
+      return <Redirect to="/login" />;
     }
     return;
   };
 
   onSubmitForm = terms => {
-    this.props.registerUser(terms.name, terms.email, terms.password);
+    this.setState({ active: true });
+    // this.props.registerUser(terms.name, terms.email, terms.password);
   };
 
   render() {
