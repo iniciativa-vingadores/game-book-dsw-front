@@ -20,7 +20,7 @@ class UserForm extends React.Component {
 
     return (
       <div className="format">
-        <img className="imagem" alt="logo" src="./book.png" />
+        <img className="imagemR" src="./book.png" />
         <form className="formwrapper" onSubmit={e => e.preventDefault()}>
           <TextField
             className="input"

@@ -41,7 +41,7 @@ class UserDetail extends React.Component {
     if (this.state.showEdit === true) {
       return (
         <div>
-          <UserForm onSubmitForm={this.onSubmitForm} type="Edit Perfil" />
+          <UserForm onSubmitForm={this.onSubmitForm} type="Editar Perfil" />
         </div>
       );
     } else return <div />;
@@ -55,7 +55,7 @@ class UserDetail extends React.Component {
           variant="contained"
           onClick={_ => this.setState({ showEdit: !this.state.showEdit })}
         >
-          {!this.state.showEdit ? "Edit Perfil" : "Cancel"}
+          {!this.state.showEdit ? "Editar Perfil" : "Cancel"}
         </Button>
         <br />
         <br />

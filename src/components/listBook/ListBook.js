@@ -1,7 +1,7 @@
 import React from "react";
 import { connect } from "react-redux";
+import { listBook } from "../../actions";
 import { Redirect } from "react-router-dom";
-import { listBook, detailBook } from "../../actions";
 
 //Material ui
 import { Typography } from "@material-ui/core";
@@ -10,6 +10,8 @@ import List from "@material-ui/core/List";
 import ItemBook from "../itemBook/ItemBook";
 
 class ListBook extends React.Component {
+  state = { bookDetail: null };
+
   componentDidMount() {
     this.props.listBook();
   }
@@ -29,6 +31,7 @@ class ListBook extends React.Component {
               name={e.name}
               rate={e.rate}
               keywords={e.keywords}
+              onSubmitBookDetail={this.onSubmitBookDetail}
             />
           );
         });
@@ -36,11 +39,16 @@ class ListBook extends React.Component {
     }
   };
 
+  onSubmitBookDetail = terms => {
+    this.setState({ bookDetail: terms });
+  };
+
   render() {
-    // if (this.props.book !== null && this.props.book.detail !== undefined) {
-    //   const bookId = this.props.book.detail.data.id;
-    //   return <Redirect to={`/books/${bookId}`} />;
-    // }
+    if (this.state.bookDetail !== null) {
+      const bookId = this.state.bookDetail.id;
+      this.setState({ bookDetail: null });
+      return <Redirect to={`/books/${bookId}`} />;
+    }
 
     return (
       <div>
@@ -59,5 +67,5 @@ const mapStateToProps = state => {
 
 export default connect(
   mapStateToProps,
-  { listBook, detailBook }
+  { listBook }
 )(ListBook);

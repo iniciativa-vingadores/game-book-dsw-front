@@ -82,12 +82,12 @@ class Header extends React.Component {
       );
     } else {
       return (
-        <div>
+        <div className="loginRegister">
           <Link to="/login">
             <Button className="button">Login</Button>
           </Link>
           <Link to="/register">
-            <Button className="button">Register</Button>
+            <Button className="button">Registrar</Button>
           </Link>
         </div>
       );
@@ -99,7 +99,7 @@ class Header extends React.Component {
     return (
       <div className="root">
         <AppBar>
-          <Toolbar>
+          <Toolbar className="toolbar">
             <Link to="/">
               <IconButton>
                 <img src="./book_white.png" alt="logo" className="icone" />
