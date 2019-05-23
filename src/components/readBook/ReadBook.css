@@ -1,14 +1,23 @@
 @import 'https://cdnjs.cloudflare.com/ajax/libs/flexboxgrid/6.3.1/flexboxgrid.min.css';
 @import url('https://fonts.googleapis.com/css?family=Merriweather:400,700|Roboto&display=swap');
 
+.title-page{
+    color: #3f51b5;
+}
+
+@import 'https://cdnjs.cloudflare.com/ajax/libs/flexboxgrid/6.3.1/flexboxgrid.min.css';
+@import url('https://fonts.googleapis.com/css?family=Merriweather:400,700|Roboto&display=swap');
+
 .container{
     margin-top: 15px;
     margin-bottom: 15px;
 }
 
-.book-card{
+.book-card-detail{
     background: white;
     box-shadow: 8px 10px 12px 0px rgba(46,61,73,0.2);
+    position: relative;
+    width: 450px;
 }
 
 .picture-book{
@@ -49,7 +58,7 @@
 }
 
 .content{
-    padding: 15px 30px 45px 30px;
+    padding: 15px 30px 15px 30px;
 }
 
 .content h1{
@@ -125,4 +134,65 @@
 
 .start-play:hover{
     box-shadow: 8px 10px 12px 0px rgba(46,61,73,0.2);
+}
+
+.divisorHistory{
+    height: 2px;
+    width: 90px;
+    background-color: #3f51b5;
+    margin-left: 50px;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    position: absolute;
+    top: 50%;
+    right: -80px;
+}
+
+.book-card-detail p{
+    white-space: normal;
+}
+
+
+.book-slide{
+    max-width: 100%;
+    margin: 0;
+    height: auto;
+    padding-bottom: 40px;
+    overflow-x: scroll;
+    white-space: nowrap;
+    -webkit-overflow-scrolling: touch;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-column-gap: 30px;
+
+}
+
+.choice{
+    background-color: #3f51b5;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr;
+}
+
+.number-choice{
+    font-family: 'Merriweather', serif !important;
+    font-weight: bold;
+    font-size: 50px;
+    color: white;
+    text-align: center;
+}
+
+.choice p{
+    color: #fff;
+    font-family: 'Merriweather', serif !important;
+    font-weight: normal
+}
+
+.decision{
+    cursor: pointer;
+    padding: 30px;
+}
+
+.decision.one{
+    background-color: #f57f17
 }
