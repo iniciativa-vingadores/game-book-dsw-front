@@ -124,30 +124,30 @@ export const listBook = _ => dispatch => {
     results: [
       {
         id: 1,
-        name: "Vingadores - Ultimato",
+        name: "As tranças da vovó careca",
         image: "linkImage.com",
-        keywords: ["Aventura", "Super-heróis", "Homem de ferro morre"],
+        keywords: ["Ação", "Aventura", "Super-heróis"],
         rate: 5
       },
       {
         id: 2,
-        name: "Hellboy",
+        name: "Poeira em alto mar",
         image: "linkImage.com",
-        keywords: ["Ação", "Fantasia"],
+        keywords: ["Suspense", "Fantasia", "Terror"],
         rate: 2
       },
       {
         id: 3,
-        name: "Detetive Pikachu",
+        name: "A volta dos que não foram",
         image: "linkImage.com",
-        keywords: ["Pokémon", "Pikachu", "Poke-bola", "Desenho"],
+        keywords: ["Romance", "Comédia", "Drama"],
         rate: 4.5
       },
       {
         id: 4,
-        name: "Clube da Luta",
+        name: "Morre hoje quem nunca havia morrido",
         image: "linkImage.com",
-        keywords: ["Melhor filme", "Foda"],
+        keywords: ["Terror", "Ação", "Suspense"],
         rate: 5
       }
     ],
