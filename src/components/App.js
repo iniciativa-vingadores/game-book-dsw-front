@@ -9,6 +9,7 @@ import RegisterForm from "./registerForm/RegisterForm";
 import UserDetail from "./userDetail/UserDetail";
 import BookDetail from "./bookDetail/BookDetail";
 import Header from "./header/Header";
+import ReadBook from "./readBook/ReadBook";
 
 class App extends React.Component {
   checkUserDetail = _ => {
@@ -21,7 +22,12 @@ class App extends React.Component {
   checkBookDetail = _ => {
     if (this.props.book !== null && this.props.book.detail !== undefined) {
       const bookId = this.props.book.detail.data.id;
-      return <Route path={`/books/${bookId}`} exact component={BookDetail} />;
+      return (
+        <div>
+          <Route path={`/books/${bookId}`} exact component={BookDetail} />
+          <Route path={`/books/read/${bookId}`} exact component={ReadBook} />
+        </div>
+      );
     }
   };
 
