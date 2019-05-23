@@ -99,7 +99,7 @@ class Header extends React.Component {
           <Toolbar className="toolbar">
             <Link to="/">
               <IconButton>
-                <img src="./book_white.png" alt="logo" className="icone" />
+                <img src="/book_white.png" alt="logo" className="icone" />
               </IconButton>
             </Link>
             {/* <div className="search">

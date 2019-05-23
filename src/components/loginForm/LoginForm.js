@@ -13,8 +13,8 @@ import "./LoginForm.css";
 
 class LoginForm extends React.Component {
   state = {
-    email: "",
-    password: ""
+    email: { value: "", isValid: false, message: "" },
+    password: { value: "", isValid: false, message: "" }
   };
 
   checkResponse = _ => {
@@ -32,6 +32,21 @@ class LoginForm extends React.Component {
     return;
   };
 
+  onChangeValue = e => {
+    this.setState({
+      [e.target.name]: { ...this.state[e.target.name], value: e.target.value }
+    });
+  };
+
+  onButtonLogin = _ => {
+    const terms = {
+      email: this.state.email.value,
+      password: this.state.password.value
+    };
+
+    this.props.loginUser(terms.email, terms.password);
+  };
+
   render() {
     return (
       <div>
@@ -43,7 +58,9 @@ class LoginForm extends React.Component {
               variant="outlined"
               label="email"
               type="textfield"
-              onChange={e => this.setState({ email: e.target.value })}
+              name="email"
+              value={this.state.email.value}
+              onChange={this.onChangeValue}
             />
             <br />
             <TextField
@@ -51,15 +68,15 @@ class LoginForm extends React.Component {
               label="senha"
               variant="outlined"
               type="password"
-              onChange={e => this.setState({ password: e.target.value })}
+              name="password"
+              value={this.state.password.value}
+              onChange={this.onChangeValue}
             />
             <br />
             <Button
               className="myButton"
               variant="contained"
-              onClick={_ =>
-                this.props.loginUser(this.state.email, this.state.password)
-              }
+              onClick={_ => this.onButtonLogin()}
             >
               <strong>Login</strong>
             </Button>

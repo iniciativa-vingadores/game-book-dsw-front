@@ -36,7 +36,7 @@ class UserDetail extends React.Component {
           <Card>
             <CardMedia
               className="media"
-              image="user_default.jpeg"
+              image="/user_default.jpeg"
               title="Account image"
             />
             <CardContent>{this.getUserDetail()}</CardContent>
@@ -63,7 +63,11 @@ class UserDetail extends React.Component {
                 </GridListTile>
                 {list.map(element => (
                   <GridListTile key={element.id}>
-                    <img alt="default" src="default_file.png" />
+                    <img
+                      alt="default"
+                      src="/default_file.png"
+                      className="book-image"
+                    />
                     <GridListTileBar
                       title={element.name}
                       subtitle={element.keywords.map(e => `[${e}] `)}
