@@ -1,0 +1,17 @@
+.grid {
+  display: grid;
+  grid-template-columns: 300px auto;
+}
+
+.item {
+  padding: 10px;
+}
+
+.media {
+  height: 200px;
+}
+
+.gridList {
+  width: auto;
+  height: fit-content;
+}

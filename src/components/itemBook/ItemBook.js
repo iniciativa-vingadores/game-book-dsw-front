@@ -7,7 +7,7 @@ import ListItem from "@material-ui/core/ListItem";
 import ListItemText from "@material-ui/core/ListItemText";
 import Avatar from "@material-ui/core/Avatar";
 import Divider from "@material-ui/core/Divider";
-import FolderIcon from "@material-ui/icons/Folder";
+import BookIcon from "@material-ui/icons/Book";
 import ListItemSecondaryAction from "@material-ui/core/ListItemSecondaryAction";
 import StarIcon from "@material-ui/icons/Star";
 
@@ -83,7 +83,7 @@ class ItemList extends React.Component {
       <div>
         <ListItem button onClick={_ => this.onButtonListItem(key)}>
           <Avatar>
-            <FolderIcon />
+            <BookIcon />
           </Avatar>
           <ListItemText
             primary={name}

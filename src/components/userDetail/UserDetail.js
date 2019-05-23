@@ -1,80 +1,86 @@
 import React from "react";
-// import { Redirect } from "react-router-dom";
 import { connect } from "react-redux";
-import { updateUser, deleteUser } from "../../actions";
-import UserForm from "../userForm/UserForm";
 
 //import Material-ui
 import Button from "@material-ui/core/Button";
+import Card from "@material-ui/core/Card";
+import CardActions from "@material-ui/core/CardActions";
+import CardContent from "@material-ui/core/CardContent";
+import CardMedia from "@material-ui/core/CardMedia";
+import Typography from "@material-ui/core/Typography";
+import GridList from "@material-ui/core/GridList";
+import GridListTile from "@material-ui/core/GridListTile";
+import GridListTileBar from "@material-ui/core/GridListTileBar";
+import ListSubheader from "@material-ui/core/ListSubheader";
+
+import "./UserDetail.css";
 
 class UserDetail extends React.Component {
-  state = {
-    active: true,
-    showEdit: false
-  };
-
-  checkResponse = _ => {
-    if (this.props.user !== null && this.props.user.info !== undefined) {
-      const user = this.props.user.info.data;
-      return (
-        <div>
-          <h2>{user.name}</h2>
-          <h3>{user.email}</h3>
-        </div>
-      );
-    }
-  };
-
-  //Edit e delete nao functionam eu n sei pq
-  onSubmitForm = terms => {
-    //const token = this.props.user.auth.data.token;
-    //this.props.updateUser(token, terms.name, terms.email, terms.password);
-    //this.setState({ showEdit: false });
-  };
-
-  onButtonDelete = _ => {
-    // const token = this.props.user.auth.data.token;
-    // this.props.deleteUser(token);
-  };
-
-  showEditForm = _ => {
-    if (this.state.showEdit === true) {
-      return (
-        <div>
-          <UserForm onSubmitForm={this.onSubmitForm} type="Editar Perfil" />
-        </div>
-      );
-    } else return <div />;
+  getUserDetail = _ => {
+    const user = this.props.user.info.data;
+    return (
+      <div>
+        <Typography variant="h5" component="h2">
+          {user.name}
+        </Typography>
+        <Typography component="p">{user.email}</Typography>
+      </div>
+    );
   };
 
   render() {
+    const list = this.props.book.list.data.results;
     return (
-      <div>
-        {this.checkResponse()}
-        <Button
-          variant="contained"
-          onClick={_ => this.setState({ showEdit: !this.state.showEdit })}
-        >
-          {!this.state.showEdit ? "Editar Perfil" : "Cancel"}
-        </Button>
-        <br />
-        <br />
-        {this.showEditForm()}
-        <br />
-        <br />
-        <Button variant="contained" onClick={this.onButtonDelete}>
-          Delete Account
-        </Button>
+      <div className="grid">
+        <div className="item account">
+          <Card>
+            <CardMedia
+              className="media"
+              image="user_default.jpeg"
+              title="Account image"
+            />
+            <CardContent>{this.getUserDetail()}</CardContent>
+            <CardActions>
+              <Button size="small" color="primary">
+                Editar Perfil
+              </Button>
+              <Button size="small" color="primary">
+                Excluir conta
+              </Button>
+            </CardActions>
+          </Card>
+        </div>
+        <div className="item books">
+          <Card>
+            <div>
+              <GridList cellHeight={250} className="gridList">
+                <GridListTile
+                  key="Subheader"
+                  cols={2}
+                  style={{ height: "auto" }}
+                >
+                  <ListSubheader component="div">Meus livros</ListSubheader>
+                </GridListTile>
+                {list.map(element => (
+                  <GridListTile key={element.id}>
+                    <img alt="default" src="default_file.png" />
+                    <GridListTileBar
+                      title={element.name}
+                      subtitle={element.keywords.map(e => `[${e}] `)}
+                    />
+                  </GridListTile>
+                ))}
+              </GridList>
+            </div>
+          </Card>
+        </div>
       </div>
     );
   }
 }
 
 const mapStateToProps = state => {
-  return { user: state.user };
+  return { user: state.user, book: state.book };
 };
 
-export default connect(
-  mapStateToProps,
-  { updateUser, deleteUser }
-)(UserDetail);
+export default connect(mapStateToProps)(UserDetail);
