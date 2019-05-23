@@ -1,45 +1,46 @@
-@import 'https://cdnjs.cloudflare.com/ajax/libs/flexboxgrid/6.3.1/flexboxgrid.min.css';
-@import url('https://fonts.googleapis.com/css?family=Merriweather:400,700|Roboto&display=swap');
+@import "https://cdnjs.cloudflare.com/ajax/libs/flexboxgrid/6.3.1/flexboxgrid.min.css";
+@import url("https://fonts.googleapis.com/css?family=Merriweather:400,700|Roboto&display=swap");
 
-.container{
-    margin-top: 15px;
-    margin-bottom: 15px;
+.container {
+  margin-top: 15px;
+  margin-bottom: 15px;
 }
 
-.book-card{
-    background: white;
-    box-shadow: 8px 10px 12px 0px rgba(46,61,73,0.2);
+.book-card {
+  background: white;
+  box-shadow: 8px 10px 12px 0px rgba(46, 61, 73, 0.2);
 }
 
-.picture-book{
-    width: 100%;
+.picture-book {
+  width: 100%;
 }
 
-.picture-book img{
-    width: 100%;
-    max-width: 100%;
+.picture-book img {
+  width: 100%;
+  max-width: 100%;
+  max-height: 300px;
 }
 
-.description-book{
-    font-family: 'Roboto', sans-serif;
-    color: #455a64;
+.description-book {
+  font-family: "Roboto", sans-serif;
+  color: #455a64;
 }
 
-.tags{
-    margin: 20px 0 25px;
-    padding: 0;
+.tags {
+  margin: 20px 0 25px;
+  padding: 0;
 }
-.tags li{
-    display: inline-block;
-    border-radius: 40px;
-    border: 2px solid darkgray;
-    padding: 8px 12px;
-    font-size: 12px;
-    color: darkgray;
+.tags li {
+  display: inline-block;
+  border-radius: 40px;
+  border: 2px solid darkgray;
+  padding: 8px 12px;
+  font-size: 12px;
+  color: darkgray;
 }
 
-.tags li + li{
-    margin-left: 6px;
+.tags li + li {
+  margin-left: 6px;
 }
 
 .description-book-title, .title-page{
@@ -48,26 +49,33 @@
     color: #455a64;
 }
 
-.content{
-    padding: 15px 30px 45px 30px;
+.description-book-title {
+  font-family: "Merriweather", serif !important;
+  font-weight: bold;
+  color: #455a64;
+
 }
 
-.content h1{
-    font-family: 'Merriweather', serif;
-    font-weight: bold;
-    color: #3f51b5
+.content {
+  padding: 15px 30px 45px 30px;
 }
 
-.content p{
-    font-family: 'Roboto', sans-serif;
+.content h1 {
+  font-family: "Merriweather", serif;
+  font-weight: bold;
+  color: #3f51b5;
 }
 
-.divisor{
-    width: 95px;
-    height: 3px;
-    border-radius: 2px;
-    background-color:  #ffdf17;
-    margin: 20px 0;
+.content p {
+  font-family: "Roboto", sans-serif;
+}
+
+.divisor {
+  width: 95px;
+  height: 3px;
+  border-radius: 2px;
+  background-color: #ffdf17;
+  margin: 20px 0;
 }
 
 .icon{
@@ -77,16 +85,16 @@
     align-content: flex-start;
 }
 
-.icon svg{
-    width: 24px;
-    height: 15px;
-    fill: darkgray;
+.icon svg {
+  width: 24px;
+  height: 15px;
+  fill: darkgray;
 }
 
-.icon p{
-    color: darkgray;
-    margin: 0 8px;
-    font-size: 14px;
+.icon p {
+  color: darkgray;
+  margin: 0 8px;
+  font-size: 14px;
 }
 
 .userInfo{

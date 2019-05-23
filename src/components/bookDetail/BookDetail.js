@@ -1,10 +1,11 @@
 import React from "react";
+
 import { Link } from 'react-router-dom'
 
-import './BookDetail.css'
+
+import "./BookDetail.css";
 
 class BookDetail extends React.Component {
-  
   render() {
     return (
       <div className="container">
@@ -13,27 +14,44 @@ class BookDetail extends React.Component {
           
             <div className="book-card">
               <div className="picture-book">
-                <img alt="default" src="https://www.einerd.com.br/wp-content/uploads/2019/04/vingadores-ultimato-je-1.jpg" />
+                <img alt="default" src="/book.png" />
               </div>
               <div className="content">
-                <h1>Vingadores - O Ultimato</h1>
-                <div className="divisor"></div>
+                <h1>Vingadores</h1>
+                <div className="divisor" />
                 <ul className="tags">
                   <li>Aventura</li>
                   <li>Super-heróis</li>
-                  <li>Homem de ferro morre</li>
                 </ul>
                 <div className="userInfo">
                   <div className="icon icon-data">
-                    <svg id="Camada_1" data-name="Camada 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 63.34 64.38"><title>noun_date_1146237</title><path d="M52.34,5.54H48.75V3a3,3,0,0,0-6,0V5.54H20.59V3a3,3,0,0,0-6,0V5.54H11a11,11,0,0,0-11,11V53.38a11,11,0,0,0,11,11H52.34a11,11,0,0,0,11-11V16.54A11,11,0,0,0,52.34,5.54ZM11,11.54H14.6v4.54a3,3,0,1,0,6,0V11.54H42.75v4.54a3,3,0,0,0,6,0V11.54h3.59a5,5,0,0,1,5,5v9.1H6v-9.1a5,5,0,0,1,5-5ZM52.34,58.38H11a5,5,0,0,1-5-5V31.64H57.34V53.38A5,5,0,0,1,52.34,58.38Z"/></svg>
+                    <svg
+                      id="Camada_1"
+                      data-name="Camada 1"
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 63.34 64.38"
+                    >
+                      <title>noun_date_1146237</title>
+                      <path d="M52.34,5.54H48.75V3a3,3,0,0,0-6,0V5.54H20.59V3a3,3,0,0,0-6,0V5.54H11a11,11,0,0,0-11,11V53.38a11,11,0,0,0,11,11H52.34a11,11,0,0,0,11-11V16.54A11,11,0,0,0,52.34,5.54ZM11,11.54H14.6v4.54a3,3,0,1,0,6,0V11.54H42.75v4.54a3,3,0,0,0,6,0V11.54h3.59a5,5,0,0,1,5,5v9.1H6v-9.1a5,5,0,0,1,5-5ZM52.34,58.38H11a5,5,0,0,1-5-5V31.64H57.34V53.38A5,5,0,0,1,52.34,58.38Z" />
+                    </svg>
                     <p>25/09/2019</p>
                   </div>
                   <div className="icon icon-user">
-                  <svg id="Camada_1" data-name="Camada 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 258 280.75"><title>noun_User_2528305</title><path d="M89,124a9.67,9.67,0,0,1,0,14,10.71,10.71,0,0,1-14,1c-16-15-26-37-26-59a80,80,0,0,1,160,0c0,27-14,53-37,67,52,19,86,69,86,124,0,13-20,13-20,0,0-59-48-112-109-111C70,157,20,213,20,271c0,13-20,13-20,0,0-71,58-131,130-131,33,0,59-27,59-60A60,60,0,0,0,69,80,57.07,57.07,0,0,0,89,124Z" transform="translate(0 0)"/></svg>
+                    <svg
+                      id="Camada_1"
+                      data-name="Camada 1"
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 258 280.75"
+                    >
+                      <title>noun_User_2528305</title>
+                      <path
+                        d="M89,124a9.67,9.67,0,0,1,0,14,10.71,10.71,0,0,1-14,1c-16-15-26-37-26-59a80,80,0,0,1,160,0c0,27-14,53-37,67,52,19,86,69,86,124,0,13-20,13-20,0,0-59-48-112-109-111C70,157,20,213,20,271c0,13-20,13-20,0,0-71,58-131,130-131,33,0,59-27,59-60A60,60,0,0,0,69,80,57.07,57.07,0,0,0,89,124Z"
+                        transform="translate(0 0)"
+                      />
+                    </svg>
                     <p>Jon Doe</p>
                   </div>
                 </div>
-                
               </div>
             </div>
           </div>
@@ -55,7 +73,6 @@ class BookDetail extends React.Component {
       </div>
     );
   }
-
 }
 
 export default BookDetail;
