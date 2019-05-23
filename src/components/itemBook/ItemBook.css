@@ -1,3 +1,42 @@
+@import url('https://fonts.googleapis.com/css?family=Merriweather:400,700|Roboto&display=swap');
+
 .star {
   color: #ffdf17;
+}
+
+@media (max-width: 600px) {
+  [class*="MuiListItemSecondaryAction-root-"] {
+    top: 0 !important;
+    left: 0 !important;
+    position: relative !important;
+    margin-left: 15px;
+    transform: none !important;
+   }
+}
+
+[class*="MuiListItem-container-"]{
+  background-color: #fff;
+  border-radius: 5px;
+  margin: 15px 25px;  
+  padding: 15px 10px;
+  box-shadow: 8px 10px 12px 0px rgba(46,61,73,0.2);
+  transition: all 0.6s ease-in;
+}
+
+[class*="MuiListItem-container-"]:hover{
+  box-shadow: 2px 4px 8px 0px rgba(46,61,73,0.2);
+}
+
+[class*="MuiListItem-button-"]:hover{
+  background-color: transparent !important;
+}
+
+[class*="MuiTypography-subheading-"]{
+  font-family: 'Merriweather', serif !important;
+  font-weight: bold  !important;
+  color: #455a64 !important;
+}
+
+[class*="MuiDivider-root"]{
+  display: none;
 }
