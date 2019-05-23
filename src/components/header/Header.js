@@ -92,8 +92,8 @@ class Header extends React.Component {
     }
   };
 
-  //TODO(): Fazer o html css tela principal
   render() {
+    console.log(this.props.location.pathname);
     return (
       <div className="root">
         <AppBar>
@@ -106,7 +106,7 @@ class Header extends React.Component {
             <div>
               <SearchIcon className="searchIcon" />
             </div>
-            <InputBase placeholder="   Pesquisar.." className="search" />
+            <InputBase placeholder="Pesquisar.." className="search" />
             <div className="grow" />
             {this.checkUserActive()}
           </Toolbar>

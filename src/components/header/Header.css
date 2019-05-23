@@ -24,6 +24,8 @@
 }
 
 .search {
+  padding-left: 10px;
+  padding-right: 10px;
   box-sizing: content-box;
   margin: 0 auto;
   margin-left: 10px;
