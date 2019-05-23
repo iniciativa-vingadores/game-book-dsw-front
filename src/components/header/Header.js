@@ -11,8 +11,8 @@ import IconButton from "@material-ui/core/IconButton";
 import MenuItem from "@material-ui/core/MenuItem";
 import Menu from "@material-ui/core/Menu";
 import AccountCircle from "@material-ui/icons/AccountCircle";
-// import SearchIcon from "@material-ui/icons/Search";
-// import InputBase from "@material-ui/core/InputBase";
+import SearchIcon from "@material-ui/icons/Search";
+import InputBase from "@material-ui/core/InputBase";
 
 //import css
 import "./Header.css";
@@ -102,14 +102,10 @@ class Header extends React.Component {
                 <img src="/book_white.png" alt="logo" className="icone" />
               </IconButton>
             </Link>
-            {/* <div className="search">
-              <div className="searchIcon">
-                <SearchIcon />
-              </div>
-              <InputBase
-
-               placeholder="Search…" />
-            </div> */}
+            <div>
+              <SearchIcon className="searchIcon" />
+            </div>
+            <InputBase placeholder="   Pesquisar.." className="search" />
             <div className="grow" />
             {this.checkUserActive()}
           </Toolbar>

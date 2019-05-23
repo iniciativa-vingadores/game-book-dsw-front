@@ -18,16 +18,20 @@
 
 .searchIcon {
   height: 100%;
-  position: absolute;
-  pointer-events: none;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  display: block;
+  margin: 0 auto;
+  margin-left: 50px;
 }
 
 .search {
-  position: relative;
-  border-radius: 2px;
+  box-sizing: content-box;
+  margin: 0 auto;
+  margin-left: 10px;
+  width: 300px;
+  border-radius: 4px;
+  color: inherit;
+  background-color: whitesmoke;
+  background-image: transparent;
 }
 
 .inputRoot {
