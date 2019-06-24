@@ -1,110 +1,67 @@
-//Fake response pro trabalho 1
+import gbServer from "../api/gameBookServer";
 
 //Action Creators...
+
+export const deleteError = _ => dispatch => {
+  dispatch({
+    type: "ERROR_HANDLER",
+    payload: null
+  });
+};
+
 /*******************************************************************************************
  *  USER ACTIONS CRUD
  ******************************************************************************************/
-export const loginUser = (email, password) => dispatch => {
-  const response = {
-    code: 0,
-    message: "",
-    data: {}
-  };
-
-  if (email === "john@asdf.com" && password === "123456a") {
-    response.code = 200;
-    response.message = "";
-    response.data = { token: "asdfg1234" };
-  } else {
-    response.code = 401;
-    response.message = "Not authorized";
-    response.data = {};
-  }
+export const loginUser = (email, password) => async dispatch => {
+  const response = await gbServer.post("/login", { email, password });
 
   dispatch({
-    type: "LOGIN_USER",
-    payload: response
+    type: response.status === 200 ? "LOGIN_USER" : "ERROR_HANDLER",
+    payload: response.data
   });
 };
 
-export const registerUser = (name, email, password) => dispatch => {
-  const response = {
-    code: 0,
-    message: "",
-    data: {}
-  };
-
-  //Fake response
-  if (name !== "" && email !== "" && password !== "") {
-    response.code = 201;
-    response.message = "Created";
-    response.data = { id: 2, name: name, email: email };
-  } else {
-    response.code = 400;
-    response.message = "Bad request";
-    response.data = {};
-  }
+export const registerUser = (name, email, password) => async dispatch => {
+  const response = await gbServer.post("/customers", { name, email, password });
 
   dispatch({
-    type: "REGISTER_USER",
-    payload: response
+    type: response.status === 201 ? "REGISTER_USER" : "ERROR_HANDLER",
+    payload: response.data
   });
 };
 
-export const updateUser = (token, name, email, password) => dispatch => {
-  const response = {
-    code: 0,
-    message: "",
-    data: {}
-  };
-
-  response.code = 200;
-  response.message = "";
-  response.data = { id: 2, name: name, email: email };
+export const updateUser = (token, name, email, password) => async dispatch => {
+  const response = await gbServer.put(
+    "/customers",
+    { name, email, password },
+    { headers: { Authorization: token } }
+  );
 
   dispatch({
-    type: "UPDATE_USER",
-    payload: response
+    type: response.status === 200 ? "UPDATE_USER" : "ERROR_HANDLER",
+    payload: response.data
   });
 };
 
-export const deleteUser = token => dispatch => {
-  const response = {
-    code: 0,
-    message: "",
-    data: {}
-  };
-
-  response.code = 204;
-  response.message = "";
-  response.data = {};
+export const deleteUser = (token, idCustomer) => async dispatch => {
+  const response = await gbServer.delete(`/customers/${idCustomer}`, {
+    headers: { Authorization: token }
+  });
 
   dispatch({
-    type: "DELETE_USER",
-    payload: response
+    type: response.status === 204 ? "DELETE_USER" : "ERROR_HANDLER",
+    payload: response.data
   });
 };
 
-export const getUser = token => dispatch => {
-  const response = {
-    code: 0,
-    message: "",
-    data: {}
-  };
-
-  if (token !== "") {
-    response.code = 200;
-    response.message = "";
-    response.data = { id: 1, name: "John Doe", email: "john@asdf.com" };
-  } else {
-    response.code = 401;
-    response.message = "Not authorized";
-    response.data = {};
-  }
+export const getUser = (token, idCustomer) => async dispatch => {
+  const response = await gbServer.get(`/customers/${idCustomer}`, {
+    headers: { Authorization: token }
+  });
 
   dispatch({
-    type: "DETAIL_USER",
-    payload: response
+    type: response.status === 200 ? "DETAIL_USER" : "ERROR_HANDLER",
+    payload: response.data
   });
 };
 
