@@ -21,6 +21,13 @@ export const loginUser = (email, password) => async dispatch => {
   });
 };
 
+export const logoutUser = _ => dispatch => {
+  dispatch({
+    type: "LOGIN_USER",
+    payload: null
+  });
+};
+
 export const registerUser = (name, email, password) => async dispatch => {
   const response = await gbServer.post("/customers", { name, email, password });
 

@@ -24,8 +24,8 @@ class Header extends React.Component {
   };
 
   componentDidMount() {
-    if (this.props.user !== null && this.props.user.auth !== undefined) {
-      this.props.getUser(this.props.user.auth.data.token);
+    if (!!this.props.user && !!this.props.user.auth) {
+      this.props.getUser(this.props.user.auth.token);
       this.setState({ active: true });
     } else {
       this.setState({ active: false });
@@ -41,8 +41,8 @@ class Header extends React.Component {
   };
 
   checkUserActive = _ => {
-    if (this.props.user !== null && this.props.user.info !== undefined) {
-      const user = this.props.user.info.data;
+    if (!!this.props.user && !!this.props.user.info) {
+      const user = this.props.user.info;
       const { anchorEl } = this.state;
       const open = Boolean(anchorEl);
 

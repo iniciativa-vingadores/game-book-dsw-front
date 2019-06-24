@@ -17,7 +17,7 @@ import "./UserDetail.css";
 
 class UserDetail extends React.Component {
   getUserDetail = _ => {
-    const user = this.props.user.info.data;
+    const user = this.props.user.info;
     return (
       <div>
         <Typography variant="h5" component="h2">
