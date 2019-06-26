@@ -28,6 +28,13 @@ export const logoutUser = _ => dispatch => {
   });
 };
 
+export const removeDetailUser = _ => dispatch => {
+  dispatch({
+    type: "REGISTER_USER",
+    payload: null
+  });
+};
+
 export const registerUser = (name, email, password) => async dispatch => {
   const response = await gbServer.post("/customers", { name, email, password });
 

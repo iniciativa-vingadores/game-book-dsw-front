@@ -10,8 +10,7 @@ class RegisterForm extends React.Component {
   };
 
   render() {
-    const response = this.props.user;
-    if (!!response && !!response.auth) {
+    if (!!this.props.user && !!this.props.user.info) {
       return <Redirect to="/login" />;
     } else {
       return (

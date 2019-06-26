@@ -10,8 +10,11 @@ class MainPage extends React.Component {
   };
 
   componentDidMount() {
-    if (this.props.user !== null && this.props.user.auth !== undefined) {
-      this.props.getUser(this.props.user.auth.data.token);
+    if (!!this.props.user && !!this.props.user.auth) {
+      if (this.props.user.info === undefined) {
+        const { auth } = this.props.user;
+        this.props.getUser(auth.token, auth.id);
+      }
       this.setState({ active: true });
     } else {
       this.setState({ active: false });

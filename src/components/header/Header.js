@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
-import { getUser } from "../../actions";
+import { getUser, logoutUser, removeDetailUser } from "../../actions";
 
 //import materialui
 import Button from "@material-ui/core/Button";
@@ -25,7 +25,10 @@ class Header extends React.Component {
 
   componentDidMount() {
     if (!!this.props.user && !!this.props.user.auth) {
-      this.props.getUser(this.props.user.auth.token);
+      if (this.props.user.info === undefined) {
+        const { auth } = this.props.user;
+        this.props.getUser(auth.token, auth.id);
+      }
       this.setState({ active: true });
     } else {
       this.setState({ active: false });
@@ -36,8 +39,14 @@ class Header extends React.Component {
     this.setState({ anchorEl: event.currentTarget });
   };
 
-  handleClose = () => {
+  handleClose = _ => {
     this.setState({ anchorEl: null });
+  };
+
+  handleCloseLogout = _ => {
+    this.setState({ anchorEl: null, active: false });
+    this.props.logoutUser();
+    this.props.removeDetailUser();
   };
 
   checkUserActive = _ => {
@@ -74,7 +83,7 @@ class Header extends React.Component {
               <MenuItem onClick={this.handleClose}>Meu Perfil</MenuItem>
             </Link>
             <MenuItem onClick={this.handleClose}>Criar história</MenuItem>
-            <MenuItem onClick={this.handleClose}>Sair</MenuItem>
+            <MenuItem onClick={this.handleCloseLogout}>Sair</MenuItem>
           </Menu>
         </div>
       );
@@ -121,5 +130,5 @@ const mapStateToProps = state => {
 
 export default connect(
   mapStateToProps,
-  { getUser }
+  { getUser, logoutUser, removeDetailUser }
 )(Header);

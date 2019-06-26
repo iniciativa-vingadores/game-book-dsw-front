@@ -4,7 +4,6 @@ import { loginUser } from "../../actions";
 import { Redirect } from "react-router-dom";
 
 //import material ui
-import { Typography } from "@material-ui/core";
 import Button from "@material-ui/core/Button";
 import TextField from "@material-ui/core/TextField";
 
@@ -15,21 +14,6 @@ class LoginForm extends React.Component {
   state = {
     email: { value: "", isValid: false, message: "" },
     password: { value: "", isValid: false, message: "" }
-  };
-
-  checkResponse = _ => {
-    if (this.props.user !== null && this.props.user.auth !== undefined) {
-      if (this.props.user.auth.code === 200) {
-        return <Redirect to="/" />;
-      } else {
-        return (
-          <div>
-            <Typography>{this.props.user.auth.message}</Typography>
-          </div>
-        );
-      }
-    }
-    return;
   };
 
   onChangeValue = e => {
@@ -48,44 +32,46 @@ class LoginForm extends React.Component {
   };
 
   render() {
-    return (
-      <div>
-        <div className="authform">
-          <img className="imagem" alt="logo" src="./book.png" />
-          <form className="form-wrapper" onSubmit={e => e.preventDefault()}>
-            <TextField
-              className="input"
-              variant="outlined"
-              label="email"
-              type="textfield"
-              name="email"
-              value={this.state.email.value}
-              onChange={this.onChangeValue}
-            />
-            <br />
-            <TextField
-              className="input"
-              label="senha"
-              variant="outlined"
-              type="password"
-              name="password"
-              value={this.state.password.value}
-              onChange={this.onChangeValue}
-            />
-            <br />
-            <Button
-              className="myButton"
-              variant="contained"
-              onClick={_ => this.onButtonLogin()}
-            >
-              <strong>Login</strong>
-            </Button>
-          </form>
+    if (!!this.props.user && !!this.props.user.auth) {
+      return <Redirect to="/" />;
+    } else {
+      return (
+        <div>
+          <div className="authform">
+            <img className="imagem" alt="logo" src="./book.png" />
+            <form className="form-wrapper" onSubmit={e => e.preventDefault()}>
+              <TextField
+                className="input"
+                variant="outlined"
+                label="email"
+                type="textfield"
+                name="email"
+                value={this.state.email.value}
+                onChange={this.onChangeValue}
+              />
+              <br />
+              <TextField
+                className="input"
+                label="senha"
+                variant="outlined"
+                type="password"
+                name="password"
+                value={this.state.password.value}
+                onChange={this.onChangeValue}
+              />
+              <br />
+              <Button
+                className="myButton"
+                variant="contained"
+                onClick={_ => this.onButtonLogin()}
+              >
+                <strong>Login</strong>
+              </Button>
+            </form>
+          </div>
         </div>
-        <br />
-        <div>{this.checkResponse()}</div>
-      </div>
-    );
+      );
+    }
   }
 }
 
