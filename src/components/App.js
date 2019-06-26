@@ -1,5 +1,6 @@
 import React from "react";
 import { BrowserRouter, Route } from "react-router-dom";
+import { connect } from "react-redux";
 
 //Components
 import MainPage from "./mainPage/MainPage";
@@ -9,8 +10,15 @@ import UserDetail from "./userDetail/UserDetail";
 import BookDetail from "./bookDetail/BookDetail";
 import Header from "./header/Header";
 import ReadBook from "./readBook/ReadBook";
+import ErrorHandler from "../components/errorHandler/ErrorHandler";
 
 class App extends React.Component {
+  renderError = _ => {
+    if (!!this.props.error && !!this.props.error.status) {
+      return <ErrorHandler message={this.props.error.status.message} />;
+    }
+  };
+
   render() {
     return (
       <div>
@@ -25,9 +33,14 @@ class App extends React.Component {
             <Route path="/books/read/:id" exact component={ReadBook} />
           </div>
         </BrowserRouter>
+        {this.renderError()}
       </div>
     );
   }
 }
 
-export default App;
+const mapStateToProps = state => {
+  return { error: state.error };
+};
+
+export default connect(mapStateToProps)(App);
