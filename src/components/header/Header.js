@@ -24,8 +24,9 @@ class Header extends React.Component {
   };
 
   componentDidMount() {
-    if (!!this.props.user && !!this.props.user.auth) {
-      if (this.props.user.info === undefined) {
+    const { user } = this.props;
+    if (!!user && !!user.auth) {
+      if (user.info === undefined || user.info === null || user.info === "") {
         const { auth } = this.props.user;
         this.props.getUser(auth.token, auth.id);
       }

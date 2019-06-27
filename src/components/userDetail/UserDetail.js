@@ -8,8 +8,6 @@ import {
 import { connect } from "react-redux";
 import { Redirect } from "react-router-dom";
 
-import UserForm from "../userForm/UserForm";
-
 //import Material-ui
 import Button from "@material-ui/core/Button";
 import Card from "@material-ui/core/Card";
@@ -21,13 +19,18 @@ import GridList from "@material-ui/core/GridList";
 import GridListTile from "@material-ui/core/GridListTile";
 import GridListTileBar from "@material-ui/core/GridListTileBar";
 import ListSubheader from "@material-ui/core/ListSubheader";
+import Dialog from "@material-ui/core/Dialog";
+import DialogActions from "@material-ui/core/DialogActions";
+import DialogContent from "@material-ui/core/DialogContent";
+import DialogContentText from "@material-ui/core/DialogContentText";
+import DialogTitle from "@material-ui/core/DialogTitle";
 
 import "./UserDetail.css";
 
 class UserDetail extends React.Component {
   state = {
     updateUser: false,
-    deleteUser: false
+    deleteDialog: false
   };
 
   getUserDetail = _ => {
@@ -47,7 +50,7 @@ class UserDetail extends React.Component {
   };
 
   onClickDeleteUser = _ => {
-    this.setState({ deleteUser: true });
+    this.setState({ deleteDialog: true });
   };
 
   renderUpdate = _ => {
@@ -56,10 +59,54 @@ class UserDetail extends React.Component {
     }
   };
 
+  handleClose = _ => {
+    this.setState({ deleteDialog: false });
+  };
+
+  handleCloseExclude = _ => {
+    const { auth } = this.props.user;
+    this.props.deleteUser(auth.token, auth.id);
+  };
+
   renderDelete = _ => {
-    if (this.state.deleteUser) {
-      //TODO(): render confirm dialog
+    if (this.state.deleteDialog) {
+      return (
+        <div>
+          <Dialog
+            open={true}
+            onClose={this.handleClose}
+            aria-labelledby="alert-dialog-title"
+            aria-describedby="alert-dialog-description"
+          >
+            <DialogTitle id="alert-dialog-title">
+              {"Você deseja realmente apagar sua conta?"}
+            </DialogTitle>
+            <DialogContent>
+              <DialogContentText id="alert-dialog-description">
+                Você desativará sua conta, caso deseje reativa-lá, apenas logue
+                novamente!
+              </DialogContentText>
+            </DialogContent>
+            <DialogActions>
+              <Button onClick={this.handleClose} color="primary">
+                Não
+              </Button>
+              <Button
+                onClick={this.handleCloseExclude}
+                color="primary"
+                autoFocus
+              >
+                Sim
+              </Button>
+            </DialogActions>
+          </Dialog>
+        </div>
+      );
     }
+  };
+
+  onSubimitResult = terms => {
+    //
   };
 
   render() {
@@ -122,6 +169,7 @@ class UserDetail extends React.Component {
             </Card>
           </div>
           {this.renderUpdate()}
+          {this.renderDelete()}
         </div>
       );
     } else {
