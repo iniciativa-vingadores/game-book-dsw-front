@@ -23,9 +23,10 @@ class LoginForm extends React.Component {
   };
 
   onButtonLogin = _ => {
+    const { email, password } = this.state;
     const terms = {
-      email: this.state.email.value,
-      password: this.state.password.value
+      email: email.value,
+      password: password.value
     };
 
     this.props.loginUser(terms.email, terms.password);

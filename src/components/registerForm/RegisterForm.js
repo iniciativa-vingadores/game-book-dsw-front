@@ -1,7 +1,7 @@
 import React from "react";
 import { connect } from "react-redux";
 import { Redirect } from "react-router-dom";
-import { registerUser } from "../../actions";
+import { registerUser, removeDetailUser } from "../../actions";
 import UserForm from "../userForm/UserForm";
 
 class RegisterForm extends React.Component {
@@ -11,6 +11,7 @@ class RegisterForm extends React.Component {
 
   render() {
     if (!!this.props.user && !!this.props.user.info) {
+      this.props.removeDetailUser();
       return <Redirect to="/login" />;
     } else {
       return (
@@ -29,5 +30,5 @@ const mapStateToProps = state => {
 
 export default connect(
   mapStateToProps,
-  { registerUser }
+  { registerUser, removeDetailUser }
 )(RegisterForm);
