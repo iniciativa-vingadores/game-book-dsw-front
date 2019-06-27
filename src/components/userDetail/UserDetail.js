@@ -1,5 +1,14 @@
 import React from "react";
+import {
+  logoutUser,
+  removeDetailUser,
+  updateUser,
+  deleteUser
+} from "../../actions";
 import { connect } from "react-redux";
+import { Redirect } from "react-router-dom";
+
+import UserForm from "../userForm/UserForm";
 
 //import Material-ui
 import Button from "@material-ui/core/Button";
@@ -16,6 +25,11 @@ import ListSubheader from "@material-ui/core/ListSubheader";
 import "./UserDetail.css";
 
 class UserDetail extends React.Component {
+  state = {
+    updateUser: false,
+    deleteUser: false
+  };
+
   getUserDetail = _ => {
     const user = this.props.user.info;
     return (
@@ -28,58 +42,91 @@ class UserDetail extends React.Component {
     );
   };
 
+  onClickUpdateUser = _ => {
+    this.setState({ updateUser: true });
+  };
+
+  onClickDeleteUser = _ => {
+    this.setState({ deleteUser: true });
+  };
+
+  renderUpdate = _ => {
+    if (this.state.updateUser) {
+      //TODO(): render modal
+    }
+  };
+
+  renderDelete = _ => {
+    if (this.state.deleteUser) {
+      //TODO(): render confirm dialog
+    }
+  };
+
   render() {
-    const list = this.props.book.list.data.results;
-    return (
-      <div className="grid">
-        <div className="item account">
-          <Card>
-            <CardMedia
-              className="media"
-              image="/user_default.jpeg"
-              title="Account image"
-            />
-            <CardContent>{this.getUserDetail()}</CardContent>
-            <CardActions>
-              <Button size="small" color="primary">
-                Editar Perfil
-              </Button>
-              <Button size="small" color="primary">
-                Excluir conta
-              </Button>
-            </CardActions>
-          </Card>
-        </div>
-        <div className="item books">
-          <Card>
-            <div>
-              <GridList cellHeight={250} className="gridList">
-                <GridListTile
-                  key="Subheader"
-                  cols={2}
-                  style={{ height: "auto" }}
+    if (!!this.props.user && !!this.props.user.auth) {
+      const list = this.props.book.list.data.results;
+      return (
+        <div className="grid">
+          <div className="item account">
+            <Card>
+              <CardMedia
+                className="media"
+                image="/user_default.jpeg"
+                title="Account image"
+              />
+              <CardContent>{this.getUserDetail()}</CardContent>
+              <CardActions>
+                <Button
+                  onClick={this.onClickUpdateUser}
+                  size="small"
+                  color="primary"
                 >
-                  <ListSubheader component="div">Meus livros</ListSubheader>
-                </GridListTile>
-                {list.map(element => (
-                  <GridListTile key={element.id}>
-                    <img
-                      alt="default"
-                      src="/default_file.png"
-                      className="book-image"
-                    />
-                    <GridListTileBar
-                      title={element.name}
-                      subtitle={element.keywords.map(e => `[${e}] `)}
-                    />
+                  Editar Perfil
+                </Button>
+                <Button
+                  onClick={this.onClickDeleteUser}
+                  size="small"
+                  color="primary"
+                >
+                  Excluir conta
+                </Button>
+              </CardActions>
+            </Card>
+          </div>
+          <div className="item books">
+            <Card>
+              <div>
+                <GridList cellHeight={250} className="gridList">
+                  <GridListTile
+                    key="Subheader"
+                    cols={2}
+                    style={{ height: "auto" }}
+                  >
+                    <ListSubheader component="div">Meus livros</ListSubheader>
                   </GridListTile>
-                ))}
-              </GridList>
-            </div>
-          </Card>
+                  {list.map(element => (
+                    <GridListTile key={element.id}>
+                      <img
+                        alt="default"
+                        src="/default_file.png"
+                        className="book-image"
+                      />
+                      <GridListTileBar
+                        title={element.name}
+                        subtitle={element.keywords.map(e => `[${e}] `)}
+                      />
+                    </GridListTile>
+                  ))}
+                </GridList>
+              </div>
+            </Card>
+          </div>
+          {this.renderUpdate()}
         </div>
-      </div>
-    );
+      );
+    } else {
+      return <Redirect to="/" />;
+    }
   }
 }
 
@@ -87,4 +134,12 @@ const mapStateToProps = state => {
   return { user: state.user, book: state.book };
 };
 
-export default connect(mapStateToProps)(UserDetail);
+export default connect(
+  mapStateToProps,
+  {
+    deleteUser,
+    removeDetailUser,
+    logoutUser,
+    updateUser
+  }
+)(UserDetail);
