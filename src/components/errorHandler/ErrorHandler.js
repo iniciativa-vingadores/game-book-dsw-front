@@ -19,7 +19,7 @@ class ErrorHandler extends React.Component {
     if (this.props.message !== undefined) {
       return (
         <Snackbar
-          anchorOrigin={{ vertical: "bottom", horizontal: "center" }}
+          anchorOrigin={{ vertical: "bottom", horizontal: "left" }}
           key={this.props.message}
           open={this.state.open}
           onClose={this.handleClose}
