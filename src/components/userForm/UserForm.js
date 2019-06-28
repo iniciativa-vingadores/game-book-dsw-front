@@ -12,6 +12,16 @@ class UserForm extends React.Component {
     confirmPassword: { value: "", isValid: false, message: "" }
   };
 
+  componentDidMount() {
+    if (this.props.type === "EDITAR") {
+      const { data } = this.props;
+      this.setState({
+        name: { value: data.name, isValid: false, message: "" },
+        email: { value: data.email, isValid: false, message: "" }
+      });
+    }
+  }
+
   onChangeValue = e => {
     this.setState({
       [e.target.name]: { ...this.state[e.target.name], value: e.target.value }
@@ -29,11 +39,15 @@ class UserForm extends React.Component {
   };
 
   render() {
-    const type = this.props.type;
+    const { type } = this.props;
 
     return (
       <div className="format">
-        <img className="imagemR" src="book.png" alt="imageR" />
+        <img
+          className="imagemR"
+          src={process.env.PUBLIC_URL + "/book.png"}
+          alt="logo"
+        />
         <form className="formwrapper" onSubmit={e => e.preventDefault()}>
           <TextField
             className="input"

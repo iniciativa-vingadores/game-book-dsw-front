@@ -44,16 +44,22 @@ export const registerUser = (name, email, password) => async dispatch => {
   });
 };
 
-export const updateUser = (token, name, email, password) => async dispatch => {
+export const updateUser = (
+  token,
+  id,
+  name,
+  email,
+  password
+) => async dispatch => {
   const response = await gbServer.put(
     "/customers",
-    { name, email, password },
+    { id, name, email, password },
     { headers: { Authorization: token } }
   );
 
   dispatch({
     type: response.status === 200 ? "UPDATE_USER" : "ERROR_HANDLER",
-    payload: response.data
+    payload: { ...response.data, code: response.status }
   });
 };
 

@@ -1,14 +1,7 @@
 import React from "react";
-import {
-  logoutUser,
-  removeDetailUser,
-  updateUser,
-  deleteUser
-} from "../../actions";
+import { logoutUser, removeDetailUser, deleteUser } from "../../actions";
 import { connect } from "react-redux";
 import { Redirect } from "react-router-dom";
-
-import UserForm from "../userForm/UserForm";
 
 //import Material-ui
 import Button from "@material-ui/core/Button";
@@ -52,7 +45,7 @@ class UserDetail extends React.Component {
 
   renderUpdate = _ => {
     if (this.state.updateUser) {
-      //TODO(): render modal
+      return <Redirect to={`/users/${this.props.user.info.id}/update`} />;
     }
   };
 
@@ -139,7 +132,6 @@ export default connect(
   {
     deleteUser,
     removeDetailUser,
-    logoutUser,
-    updateUser
+    logoutUser
   }
 )(UserDetail);
