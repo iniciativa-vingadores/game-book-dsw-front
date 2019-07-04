@@ -12,6 +12,7 @@ import Header from "./header/Header";
 import ReadBook from "./readBook/ReadBook";
 import EditUser from "./editUser/EditUser";
 import ErrorHandler from "./errorHandler/ErrorHandler";
+import CreateStory from "./createStory/CreateStory";
 
 class App extends React.Component {
   renderError = _ => {
@@ -31,6 +32,7 @@ class App extends React.Component {
             <Route path="/register" exact component={RegisterForm} />
             <Route path="/users/:id" exact component={UserDetail} />
             <Route path="/users/:id/update" exact component={EditUser} />
+            <Route path="/create" exact component={CreateStory} />
             <Route path="/books/:id" exact component={BookDetail} />
             <Route path="/books/read/:id" exact component={ReadBook} />
           </div>

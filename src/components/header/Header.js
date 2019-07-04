@@ -83,7 +83,9 @@ class Header extends React.Component {
             <Link to={`/users/${user.id}`}>
               <MenuItem onClick={this.handleClose}>Meu Perfil</MenuItem>
             </Link>
-            <MenuItem onClick={this.handleClose}>Criar história</MenuItem>
+            <Link to="/create">
+              <MenuItem onClick={this.handleClose}>Criar história</MenuItem>
+            </Link>
             <MenuItem onClick={this.handleCloseLogout}>Sair</MenuItem>
           </Menu>
         </div>
