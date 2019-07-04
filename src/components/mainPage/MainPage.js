@@ -2,6 +2,8 @@ import React from "react";
 import { connect } from "react-redux";
 import { getUser } from "../../actions";
 
+import Container from "@material-ui/core/Container";
+
 import ListBook from "../listBook/ListBook";
 
 class MainPage extends React.Component {
@@ -25,7 +27,9 @@ class MainPage extends React.Component {
   render() {
     return (
       <div>
-        <ListBook />
+        <Container maxWidth="lg">
+          <ListBook />
+        </Container>
       </div>
     );
   }

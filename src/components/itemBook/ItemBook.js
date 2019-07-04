@@ -6,10 +6,12 @@ import { detailBook } from "../../actions";
 import ListItem from "@material-ui/core/ListItem";
 import ListItemText from "@material-ui/core/ListItemText";
 import Avatar from "@material-ui/core/Avatar";
+import ListItemAvatar from "@material-ui/core/ListItemAvatar";
 import Divider from "@material-ui/core/Divider";
 import BookIcon from "@material-ui/icons/Book";
 import ListItemSecondaryAction from "@material-ui/core/ListItemSecondaryAction";
 import StarIcon from "@material-ui/icons/Star";
+import Card from "@material-ui/core/Card";
 
 import "./ItemBook.css";
 
@@ -81,19 +83,23 @@ class ItemList extends React.Component {
     const { key, name, rate, keywords } = this.props;
     return (
       <div>
-        <ListItem button onClick={_ => this.onButtonListItem(key)}>
-          <Avatar>
-            <BookIcon />
-          </Avatar>
-          <ListItemText
-            primary={name}
-            secondary={keywords.map(e => `[${e}] `)}
-          />
-          <ListItemSecondaryAction>
-            {this.countRateStars(rate)}
-          </ListItemSecondaryAction>
-        </ListItem>
-        <Divider variant="inset" component="li" />
+        <Card className="my-card">
+          <ListItem button onClick={_ => this.onButtonListItem(key)}>
+            <ListItemAvatar>
+              <Avatar>
+                <BookIcon />
+              </Avatar>
+            </ListItemAvatar>
+            <ListItemText
+              primary={name}
+              secondary={keywords.map(e => `[${e}] `)}
+            />
+            <ListItemSecondaryAction>
+              {this.countRateStars(rate)}
+            </ListItemSecondaryAction>
+          </ListItem>
+          <Divider variant="inset" component="li" />
+        </Card>
       </div>
     );
   }
