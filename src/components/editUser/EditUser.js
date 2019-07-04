@@ -1,7 +1,7 @@
 import React from "react";
 import { connect } from "react-redux";
 import { Redirect } from "react-router-dom";
-import { updateUser } from "../../actions";
+import { updateUser, removeDetailUser } from "../../actions";
 import UserForm from "../userForm/UserForm";
 
 class EditUser extends React.Component {
@@ -30,6 +30,7 @@ class EditUser extends React.Component {
       if (!!this.props.user.info.code) {
         if (this.props.user.info.code === 200) {
           this.setState({ ok: true });
+          this.props.removeDetailUser();
         }
       }
     }
@@ -63,5 +64,5 @@ const mapStateToProps = state => {
 
 export default connect(
   mapStateToProps,
-  { updateUser }
+  { updateUser, removeDetailUser }
 )(EditUser);
