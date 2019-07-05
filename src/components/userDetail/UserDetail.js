@@ -19,6 +19,7 @@ import DialogActions from "@material-ui/core/DialogActions";
 import DialogContent from "@material-ui/core/DialogContent";
 import DialogContentText from "@material-ui/core/DialogContentText";
 import DialogTitle from "@material-ui/core/DialogTitle";
+import Container from "@material-ui/core/Container";
 
 import "./UserDetail.css";
 
@@ -108,64 +109,66 @@ class UserDetail extends React.Component {
     if (!!this.props.user && !!this.props.user.auth) {
       const list = this.props.book.list.data.results;
       return (
-        <div className="grid">
-          <div className="item account">
-            <Card>
-              <CardMedia
-                className="media"
-                image="/user_default.jpeg"
-                title="Account image"
-              />
-              <CardContent>{this.getUserDetail()}</CardContent>
-              <CardActions>
-                <Button
-                  onClick={this.onClickUpdateUser}
-                  size="small"
-                  color="primary"
-                >
-                  Editar Perfil
-                </Button>
-                <Button
-                  onClick={this.onClickDeleteUser}
-                  size="small"
-                  color="primary"
-                >
-                  Excluir conta
-                </Button>
-              </CardActions>
-            </Card>
-          </div>
-          <div className="item books">
-            <Card>
-              <div>
-                <GridList cellHeight={250} className="gridList">
-                  <GridListTile
-                    key="Subheader"
-                    cols={2}
-                    style={{ height: "auto" }}
+        <Container maxWidth="lg">
+          <div className="grid">
+            <div className="item account">
+              <Card>
+                <CardMedia
+                  className="media"
+                  image="/user_default.jpeg"
+                  title="Account image"
+                />
+                <CardContent>{this.getUserDetail()}</CardContent>
+                <CardActions>
+                  <Button
+                    onClick={this.onClickUpdateUser}
+                    size="small"
+                    color="primary"
                   >
-                    <ListSubheader component="div">Meus livros</ListSubheader>
-                  </GridListTile>
-                  {list.map(element => (
-                    <GridListTile key={element.id}>
-                      <img
-                        alt="default"
-                        src="/default_file.png"
-                        className="book-image"
-                      />
-                      <GridListTileBar
-                        title={element.name}
-                        subtitle={element.keywords.map(e => `[${e}] `)}
-                      />
+                    Editar Perfil
+                  </Button>
+                  <Button
+                    onClick={this.onClickDeleteUser}
+                    size="small"
+                    color="primary"
+                  >
+                    Excluir conta
+                  </Button>
+                </CardActions>
+              </Card>
+            </div>
+            <div className="item books">
+              <Card>
+                <div>
+                  <GridList cellHeight={250} className="gridList">
+                    <GridListTile
+                      key="Subheader"
+                      cols={2}
+                      style={{ height: "auto" }}
+                    >
+                      <ListSubheader component="div">Meus livros</ListSubheader>
                     </GridListTile>
-                  ))}
-                </GridList>
-              </div>
-            </Card>
+                    {list.map(element => (
+                      <GridListTile key={element.id}>
+                        <img
+                          alt="default"
+                          src="/default_file.png"
+                          className="book-image"
+                        />
+                        <GridListTileBar
+                          title={element.name}
+                          subtitle={element.keywords.map(e => `[${e}] `)}
+                        />
+                      </GridListTile>
+                    ))}
+                  </GridList>
+                </div>
+              </Card>
+            </div>
+            {this.renderUpdate()}
+            {this.renderDelete()}
           </div>
-          {this.renderUpdate()}
-          {this.renderDelete()}
-        </div>
+        </Container>
       );
     } else {
       return <Redirect to="/" />;

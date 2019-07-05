@@ -16,6 +16,7 @@ import CreateStory from "./createStory/CreateStory";
 
 class App extends React.Component {
   renderError = _ => {
+    console.log(this.props.error);
     if (!!this.props.error && !!this.props.error.status) {
       return <ErrorHandler message={this.props.error.status.message} />;
     }

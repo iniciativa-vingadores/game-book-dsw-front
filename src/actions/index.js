@@ -2,6 +2,13 @@ import gbServer from "../api/gameBookServer";
 
 //Action Creators...
 
+export const createError = error => dispatch => {
+  dispatch({
+    type: "ERROR_HANDLER",
+    payload: error
+  });
+};
+
 export const deleteError = _ => dispatch => {
   dispatch({
     type: "ERROR_HANDLER",

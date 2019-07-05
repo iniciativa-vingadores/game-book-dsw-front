@@ -1,4 +1,6 @@
 import React from "react";
+import { createError } from "../../actions";
+import { connect } from "react-redux";
 import { TextField, Button } from "@material-ui/core";
 
 //import css
@@ -29,13 +31,17 @@ class UserForm extends React.Component {
   };
 
   onButtonReturn = _ => {
-    const terms = {
-      name: this.state.name.value,
-      email: this.state.email.value,
-      password: this.state.password.value
-    };
+    if (this.state.password.value !== this.state.confirmPassword.value) {
+      this.props.createError({ message: "Senhas diferentes." });
+    } else {
+      const terms = {
+        name: this.state.name.value,
+        email: this.state.email.value,
+        password: this.state.password.value
+      };
 
-    this.props.onSubmitForm(terms);
+      this.props.onSubmitForm(terms);
+    }
   };
 
   render() {
@@ -103,4 +109,11 @@ class UserForm extends React.Component {
   }
 }
 
-export default UserForm;
+const mapStateToProps = state => {
+  return { error: state.error };
+};
+
+export default connect(
+  mapStateToProps,
+  { createError }
+)(UserForm);
