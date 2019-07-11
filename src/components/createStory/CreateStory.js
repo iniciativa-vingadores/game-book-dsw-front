@@ -16,6 +16,20 @@ import CloudUploadIcon from "@material-ui/icons/CloudUpload";
 import "./CreateStory.css";
 
 class CreateStory extends React.Component {
+  state = {
+    buttonForward: false
+  };
+
+  redirecionar() {
+    this.setState({ buttonForward: true });
+  }
+
+  avanc() {
+    if (this.state.buttonForward) {
+      return <Redirect to="/create/flow/1" />;
+    }
+  }
+
   render() {
     if (!!this.props.user && !!this.props.user.auth) {
       return (
@@ -60,9 +74,10 @@ class CreateStory extends React.Component {
               <FormControl fullWidth>
                 <InputLabel>Genero da Historia</InputLabel>
                 <Select>
-                  <MenuItem value={10}>Ten</MenuItem>
-                  <MenuItem value={20}>Twenty</MenuItem>
-                  <MenuItem value={30}>Thirty</MenuItem>
+                  <MenuItem value={10}>Terror</MenuItem>
+                  <MenuItem value={20}>Ação</MenuItem>
+                  <MenuItem value={30}>Aventura</MenuItem>
+                  <MenuItem value={40}>Romance</MenuItem>
                 </Select>
               </FormControl>
             </Grid>
@@ -81,11 +96,17 @@ class CreateStory extends React.Component {
               </label>
             </Grid>
             <Grid item xs={6}>
-              <Button fullWidth variant="contained" color="primary">
+              <Button
+                onClick={_ => this.redirecionar()}
+                fullWidth
+                variant="contained"
+                color="primary"
+              >
                 Avançar
               </Button>
             </Grid>
           </Grid>
+          {this.avanc()}
         </Container>
       );
     } else {

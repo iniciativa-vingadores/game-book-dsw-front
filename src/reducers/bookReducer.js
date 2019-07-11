@@ -12,6 +12,8 @@ export default (state = null, action) => {
       return { ...state, create: action.payload };
     case "DELETE_BOOK":
       return { ...state, info: action.payload };
+    case "FLOW_BOOK":
+      return { ...state, story: action.payload };
     default:
       return state;
   }

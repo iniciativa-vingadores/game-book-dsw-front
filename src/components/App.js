@@ -9,7 +9,6 @@ import RegisterForm from "./registerForm/RegisterForm";
 import UserDetail from "./userDetail/UserDetail";
 import BookDetail from "./bookDetail/BookDetail";
 import Header from "./header/Header";
-import ReadBook from "./readBook/ReadBook";
 import EditUser from "./editUser/EditUser";
 import ErrorHandler from "./errorHandler/ErrorHandler";
 import CreateStory from "./createStory/CreateStory";
@@ -35,7 +34,7 @@ class App extends React.Component {
             <Route path="/users/:id/update" exact component={EditUser} />
             <Route path="/create" exact component={CreateStory} />
             <Route path="/books/:id" exact component={BookDetail} />
-            <Route path="/books/read/:id" exact component={ReadBook} />
+            <Route path="/books/read/:id" exact component={Flow} />
             <Route path="/create/flow/:id" exact component={Flow} />
           </div>
         </BrowserRouter>

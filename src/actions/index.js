@@ -221,6 +221,22 @@ export const createBook = (token, book) => dispatch => {
   });
 };
 
+export const getFlow = () => dispatch => {
+  const response =
+    "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce tincidunt cursus nibh. Sed laoreet at massa quis laoreet. Phasellus turpis velit, dignissim vitae lobortis nec, congue sit amet nunc. Vivamus tincidunt elit neque, in vestibulum purus maximus ac. Nam vestibulum pharetra venenatis. In eu odio placerat, gravida tortor in, sollicitudin quam. Suspendisse vehicula efficitur leo non eleifend. Morbi at tempus purus. Suspendisse auctor justo faucibus, consectetur metus ac, aliquam ipsum. Donec eget metus vitae urna dapibus vestibulum sed commodo felis. Morbi fringilla semper nisl a faucibus. Suspendisse potenti. Curabitur in massa massa. Aenean in justo metus. Quisque rutrum volutpat imperdiet. Maecenas fringilla nulla sed posuere mattis. Aliquam faucibus, felis at iaculis lacinia, risus nunc lacinia risus, sit amet luctus magna magna nec diam. Quisque non auctor dui. Ut sed feugiat nisi. Morbi porttitor suscipit enim semper aliquet. Phasellus non consectetur leo. Praesent interdum fringilla tortor in ornare. Nam tristique lacinia sapien sit amet auctor. Sed viverra turpis at volutpat aliquam. Aliquam augue eros, viverra sagittis quam quis, porttitor posuere eros. Duis ornare ornare dolor, ac volutpat velit commodo vel.";
+  dispatch({
+    type: "FLOW_BOOK",
+    payload: response
+  });
+};
+
+export const deleteFlow = () => dispatch => {
+  dispatch({
+    type: "FLOW_BOOK",
+    payload: null
+  });
+};
+
 export const deleteBook = (token, bookId) => dispatch => {
   const response = {
     code: 0,
