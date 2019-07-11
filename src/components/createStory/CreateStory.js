@@ -1,4 +1,6 @@
 import React from "react";
+import { Redirect } from "react-router-dom";
+import { connect } from "react-redux";
 
 import Container from "@material-ui/core/Container";
 import Grid from "@material-ui/core/Grid";
@@ -15,78 +17,88 @@ import "./CreateStory.css";
 
 class CreateStory extends React.Component {
   render() {
-    return (
-      <Container maxWidth="md">
-        <Grid
-          spacing={2}
-          container
-          direction="row"
-          justify="center"
-          alignItems="center"
-        >
-          <Grid item xs={12}>
-            <Typography variant="h3">Criando sua Historia</Typography>
-          </Grid>
-          <Grid item xs={12}>
-            <TextField
-              fullWidth
-              variant="outlined"
-              margin="normal"
-              label="Titulo da Historia"
-            />
-          </Grid>
-          <Grid item xs={12}>
-            <TextField
-              fullWidth
-              variant="outlined"
-              margin="normal"
-              label="Resumo da historia"
-              multiline
-              rows="4"
-            />
-          </Grid>
-          <Grid item xs={6}>
-            <TextField
-              fullWidth
-              variant="outlined"
-              margin="normal"
-              label="Palavras-Chaves"
-            />
-          </Grid>
-          <Grid item xs={6}>
-            <FormControl fullWidth>
-              <InputLabel>Genero da Historia</InputLabel>
-              <Select>
-                <MenuItem value={10}>Ten</MenuItem>
-                <MenuItem value={20}>Twenty</MenuItem>
-                <MenuItem value={30}>Thirty</MenuItem>
-              </Select>
-            </FormControl>
-          </Grid>
-          <Grid item xs={6}>
-            <input
-              accept="image/*"
-              style={{ display: "none" }}
-              id="text-button-file"
-              multiple
-              type="file"
-            />
-            <label htmlFor="text-button-file">
-              <Button fullWidth variant="contained" component="span">
-                Escolher Capa da Historia &nbsp;
-                <CloudUploadIcon />
+    if (!!this.props.user && !!this.props.user.auth) {
+      return (
+        <Container maxWidth="md">
+          <Grid
+            spacing={2}
+            container
+            direction="row"
+            justify="center"
+            alignItems="center"
+          >
+            <Grid item xs={12}>
+              <Typography variant="h3">Criando sua Historia</Typography>
+            </Grid>
+            <Grid item xs={12}>
+              <TextField
+                fullWidth
+                variant="outlined"
+                margin="normal"
+                label="Titulo da Historia"
+              />
+            </Grid>
+            <Grid item xs={12}>
+              <TextField
+                fullWidth
+                variant="outlined"
+                margin="normal"
+                label="Resumo da historia"
+                multiline
+                rows="4"
+              />
+            </Grid>
+            <Grid item xs={6}>
+              <TextField
+                fullWidth
+                variant="outlined"
+                margin="normal"
+                label="Palavras-Chaves"
+              />
+            </Grid>
+            <Grid item xs={6}>
+              <FormControl fullWidth>
+                <InputLabel>Genero da Historia</InputLabel>
+                <Select>
+                  <MenuItem value={10}>Ten</MenuItem>
+                  <MenuItem value={20}>Twenty</MenuItem>
+                  <MenuItem value={30}>Thirty</MenuItem>
+                </Select>
+              </FormControl>
+            </Grid>
+            <Grid item xs={6}>
+              <input
+                accept="image/*"
+                style={{ display: "none" }}
+                id="text-button-file"
+                type="file"
+              />
+              <label htmlFor="text-button-file">
+                <Button fullWidth variant="contained" component="span">
+                  Escolher Capa da Historia &nbsp;
+                  <CloudUploadIcon />
+                </Button>
+              </label>
+            </Grid>
+            <Grid item xs={6}>
+              <Button fullWidth variant="contained" color="primary">
+                Avançar
               </Button>
-            </label>
+            </Grid>
           </Grid>
-          <Grid item xs={6}>
-            <Button fullWidth variant="contained" color="primary">
-              Avançar
-            </Button>
-          </Grid>
-        </Grid>
-      </Container>
-    );
+        </Container>
+      );
+    } else {
+      return <Redirect to="/" />;
+    }
   }
 }
 
-export default CreateStory;
+const mapStateToProps = state => {
+  return { user: state.user };
+};
+
+export default connect(
+  mapStateToProps,
+  {}
+)(CreateStory);

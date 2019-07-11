@@ -13,10 +13,10 @@ import ReadBook from "./readBook/ReadBook";
 import EditUser from "./editUser/EditUser";
 import ErrorHandler from "./errorHandler/ErrorHandler";
 import CreateStory from "./createStory/CreateStory";
+import Flow from "./flow/Flow";
 
 class App extends React.Component {
   renderError = _ => {
-    console.log(this.props.error);
     if (!!this.props.error && !!this.props.error.status) {
       return <ErrorHandler message={this.props.error.status.message} />;
     }
@@ -36,6 +36,7 @@ class App extends React.Component {
             <Route path="/create" exact component={CreateStory} />
             <Route path="/books/:id" exact component={BookDetail} />
             <Route path="/books/read/:id" exact component={ReadBook} />
+            <Route path="/create/flow/:id" exact component={Flow} />
           </div>
         </BrowserRouter>
         {this.renderError()}
