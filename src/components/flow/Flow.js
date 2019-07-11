@@ -22,10 +22,12 @@ class Flow extends React.Component {
   render() {
     if (!!this.props.book) {
       return (
-        <Container maxWidth="lg">
-          <Card>
+        <Container className="container" maxWidth="lg">
+          <Card className="card">
             <CardContent>
-              <Typography variant="h4">Fluxo 1</Typography>
+              <Typography className="title" variant="h4">
+                Fluxo 1
+              </Typography>
               {!this.props.book.story ? (
                 <TextField
                   fullWidth
@@ -36,7 +38,7 @@ class Flow extends React.Component {
                   rows="20"
                 />
               ) : (
-                <div>{this.props.book.story}</div>
+                <div className="coisasdevalmir">{this.props.book.story}</div>
               )}
             </CardContent>
             <Grid>

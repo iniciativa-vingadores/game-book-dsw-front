@@ -1,3 +1,14 @@
 .button-wraper {
   justify-content: space-evenly;
 }
+
+.coisasdevalmir {
+  margin: 30px;
+  text-align: justify;
+  line-height: 1.3;
+}
+
+.title {
+  padding-top: 20px;
+  padding-left: 30px;
+}
