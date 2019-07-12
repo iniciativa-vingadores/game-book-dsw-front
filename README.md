@@ -1,3 +1,15 @@
+# Game book - Frontend
+
+Parte fontend do projeto Game Book Palaform, trabalho final para matéria Desenvolvimento de Software Web da Universidade Federal de Goias (UFG).
+
+## Integrantes
+
+- [Hyago Moreira](https://github.com/HyagoHenrique)
+- [Lucas Prates](https://github.com/pratess)
+- [Rhadá Costa](https://github.com/rcosta87)
+- [Valmir Torres](https://github.com/valmirt)
+
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Used dependencies
